@@ -1,5 +1,5 @@
 //
-//  AppCoordinator.swift
+//  UIColorExtensions.swift
 //  Mobile Challenge
 //
 //  Created by Douglas da Silva Santos on 03/04/19.
@@ -8,10 +8,9 @@
 
 import UIKit
 
-protocol AppCoordinator: Coordinator {
+extension UIColor {
     
-    var window: UIWindow? { set get }
-    var rootViewController: UIViewController { get }
+    static let picpayDefaultBlackBackground = UIColor(red: 29/255, green: 30/255, blue: 32/255, alpha: 1)
     
 }
 

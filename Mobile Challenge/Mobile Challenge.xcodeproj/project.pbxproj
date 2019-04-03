@@ -15,6 +15,10 @@
 		A5C5C852225440C7003F3DCB /* Mobile_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C851225440C7003F3DCB /* Mobile_ChallengeTests.swift */; };
 		A5C5C85E225465C4003F3DCB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C85D225465C4003F3DCB /* Coordinator.swift */; };
 		A5C5C860225465FD003F3DCB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C85F225465FD003F3DCB /* AppCoordinator.swift */; };
+		A5C5C864225467F7003F3DCB /* ContactsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C863225467F7003F3DCB /* ContactsCoordinator.swift */; };
+		A5C5C86822546A19003F3DCB /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C86622546A19003F3DCB /* ContactsViewController.swift */; };
+		A5C5C86922546A19003F3DCB /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5C5C86722546A19003F3DCB /* ContactsViewController.xib */; };
+		A5C5C86D22547628003F3DCB /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C86C22547628003F3DCB /* UIColorExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,10 @@
 		A5C5C853225440C7003F3DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5C5C85D225465C4003F3DCB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A5C5C85F225465FD003F3DCB /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		A5C5C863225467F7003F3DCB /* ContactsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCoordinator.swift; sourceTree = "<group>"; };
+		A5C5C86622546A19003F3DCB /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		A5C5C86722546A19003F3DCB /* ContactsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
+		A5C5C86C22547628003F3DCB /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +89,9 @@
 		A5C5C83B225440C5003F3DCB /* Mobile Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				A5C5C86A2254760F003F3DCB /* Other */,
 				A5C5C85C225465A6003F3DCB /* Scenes */,
-				A5C5C83C225440C5003F3DCB /* AppDelegate.swift */,
-				A5C5C83E225440C5003F3DCB /* ViewController.swift */,
-				A5C5C840225440C5003F3DCB /* Main.storyboard */,
-				A5C5C843225440C7003F3DCB /* Assets.xcassets */,
-				A5C5C848225440C7003F3DCB /* Info.plist */,
+				A5C5C862225467C8003F3DCB /* SupportFiles */,
 			);
 			path = "Mobile Challenge";
 			sourceTree = "<group>";
@@ -106,8 +111,55 @@
 				A5C5C845225440C7003F3DCB /* LaunchScreen.storyboard */,
 				A5C5C85D225465C4003F3DCB /* Coordinator.swift */,
 				A5C5C85F225465FD003F3DCB /* AppCoordinator.swift */,
+				A5C5C861225467B3003F3DCB /* Contacts */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A5C5C861225467B3003F3DCB /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				A5C5C863225467F7003F3DCB /* ContactsCoordinator.swift */,
+				A5C5C86522546A06003F3DCB /* ViewControllers */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		A5C5C862225467C8003F3DCB /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A5C5C83C225440C5003F3DCB /* AppDelegate.swift */,
+				A5C5C840225440C5003F3DCB /* Main.storyboard */,
+				A5C5C843225440C7003F3DCB /* Assets.xcassets */,
+				A5C5C848225440C7003F3DCB /* Info.plist */,
+				A5C5C83E225440C5003F3DCB /* ViewController.swift */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		A5C5C86522546A06003F3DCB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5C5C86622546A19003F3DCB /* ContactsViewController.swift */,
+				A5C5C86722546A19003F3DCB /* ContactsViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A5C5C86A2254760F003F3DCB /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A5C5C86B22547618003F3DCB /* Extensions */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		A5C5C86B22547618003F3DCB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A5C5C86C22547628003F3DCB /* UIColorExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5C5C847225440C7003F3DCB /* LaunchScreen.storyboard in Resources */,
+				A5C5C86922546A19003F3DCB /* ContactsViewController.xib in Resources */,
 				A5C5C844225440C7003F3DCB /* Assets.xcassets in Resources */,
 				A5C5C842225440C5003F3DCB /* Main.storyboard in Resources */,
 			);
@@ -211,10 +264,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C5C864225467F7003F3DCB /* ContactsCoordinator.swift in Sources */,
+				A5C5C86D22547628003F3DCB /* UIColorExtensions.swift in Sources */,
 				A5C5C860225465FD003F3DCB /* AppCoordinator.swift in Sources */,
 				A5C5C83F225440C5003F3DCB /* ViewController.swift in Sources */,
 				A5C5C83D225440C5003F3DCB /* AppDelegate.swift in Sources */,
 				A5C5C85E225465C4003F3DCB /* Coordinator.swift in Sources */,
+				A5C5C86822546A19003F3DCB /* ContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Mobile Challenge/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Mobile Challenge/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -394,7 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Mobile Challenge/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Mobile Challenge/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
