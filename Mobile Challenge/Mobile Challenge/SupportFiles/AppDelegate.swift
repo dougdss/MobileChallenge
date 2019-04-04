@@ -12,15 +12,28 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var appCoordinator: AppCoordinator!
+    var appCoordinator: Coordinator!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
+        customizeAppearance()
+        
+        let apiService: ApiService = {
+            let api = ApiClient(urlSessionConfiguration: URLSessionConfiguration.default, completionHandlerQueue: OperationQueue.main)
+            return api
+        }()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        appCoordinator = ContactsCoordinator(window: window)
+        appCoordinator = ContactsAppCoordinator(window: window, apiService: apiService)
+//        appCoordinator = AppCoordinator(window: window)
         appCoordinator.start()
+        
         return true
     }
-
+    
+    func customizeAppearance() {
+        UITextField.appearance(whenContainedInInstancesOf: [ContactsSearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
+        
+    }
 }
 

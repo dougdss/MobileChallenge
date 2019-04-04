@@ -8,27 +8,105 @@
 
 import UIKit
 
-class ContactsViewController: UIViewController {
+class ContactsViewController: BaseNavigationControllerChild {
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: ContactsSearchBar!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
+    var viewModel: ContactsViewModelType! {
+        didSet {
+            viewModel.viewDelegate = self
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewInitialConfiguration()
+        setupViews()
+        
+        viewModel.loadContacts()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(gesture:)))
+        tableView.addGestureRecognizer(tap)
     }
     
-    private func viewInitialConfiguration() {
-        view.backgroundColor = .picpayDefaultBlackBackground
-        navigationController?.navigationBar.barTintColor = .picpayDefaultBlackBackground
-        navigationController?.navigationBar.backgroundColor = .picpayDefaultBlackBackground
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.barStyle = .blackOpaque
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        title = "Contatos"
+    @objc private func handleTap(gesture: UITapGestureRecognizer) {
+        searchBar.resignFirstResponder()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    private func setupViews() {
+        self.title = "Contatos"
+        searchBar.delegate = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        configBackgroundView()
+    }
+    
+    private func configBackgroundView() {
+        let errorView = ContactsErrorView()
+        errorView.delegate = self
+        tableView.backgroundView = errorView
     }
 
+}
+
+extension ContactsViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        (searchBar as! ContactsSearchBar).isActive = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if searchBar.text == "" {
+            (searchBar as! ContactsSearchBar).isActive = false
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+}
+
+extension ContactsViewController: ContactsViewModelViewDelegate {
+    func updateScreen() {
+        tableView.reloadData()
+    }
+    
+    func updateState(_ state: ViewState) {
+        switch state {
+        case .loading:
+            indicator.startAnimating()
+        case .loaded:
+            indicator.stopAnimating()
+        }
+    }
+    
+    func showError(error: Error) {
+        tableView.backgroundView?.isHidden = false
+    }
+    
+}
+
+extension ContactsViewController: ContactsErrorViewDelegate {
+    
+    func didTapTryAgainButton(erroView: ContactsErrorView) {
+        tableView.backgroundView?.isHidden = true
+        viewModel.loadContacts()
+    }
+    
+}
+
+extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numbersOfitems()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let viewdata = viewModel.itemFor(row: indexPath.row)
+        let cell = UITableViewCell()
+        cell.textLabel?.text = viewdata.name
+        return cell
+    }
+    
 }

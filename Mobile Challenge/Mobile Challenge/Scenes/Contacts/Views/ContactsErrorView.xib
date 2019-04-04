@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactsErrorView" customModule="Mobile_Challenge" customModuleProvider="target">
+            <connections>
+                <outlet property="errorLabel" destination="oo0-b3-ke6" id="JIS-5w-l89"/>
+                <outlet property="tryAgainButton" destination="UWv-VY-FPZ" id="Zag-Vl-6mM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWv-VY-FPZ">
+                    <rect key="frame" x="124.5" y="318.5" width="126" height="30"/>
+                    <state key="normal" title="Tentar Novamente"/>
+                    <connections>
+                        <action selector="tryAgainButtonTapped:" destination="-1" eventType="touchUpInside" id="BMs-UC-9Xo"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Algo Deu errado!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oo0-b3-ke6">
+                    <rect key="frame" x="122.5" y="289.5" width="130" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="UWv-VY-FPZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="04C-8t-nPI"/>
+                <constraint firstItem="UWv-VY-FPZ" firstAttribute="top" secondItem="oo0-b3-ke6" secondAttribute="bottom" constant="8" id="FaQ-5S-2KZ"/>
+                <constraint firstItem="oo0-b3-ke6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="H2T-tF-7Uu"/>
+                <constraint firstItem="UWv-VY-FPZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="L61-Fr-asG"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

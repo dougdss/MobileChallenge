@@ -1,22 +1,65 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactsViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactsViewController" customModule="Mobile_Challenge" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="indicator" destination="Wl1-sR-e7b" id="C9b-Re-AYc"/>
+                <outlet property="searchBar" destination="uYI-eO-pCA" id="ZzM-o2-bO0"/>
+                <outlet property="tableView" destination="Lx8-3m-MAN" id="lcd-xa-rxZ"/>
+                <outlet property="view" destination="iN0-l3-epB" id="bVJ-lT-YxJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lx8-3m-MAN">
+                    <rect key="frame" x="0.0" y="28" width="375" height="639"/>
+                    <color key="backgroundColor" red="0.11372549019607843" green="0.11764705882352941" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <view key="tableHeaderView" contentMode="scaleToFill" id="3VT-EG-PLM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="A quem você deseja pagar?" translatesAutoresizingMaskIntoConstraints="NO" id="uYI-eO-pCA" customClass="ContactsSearchBar" customModule="Mobile_Challenge" customModuleProvider="target">
+                                <rect key="frame" x="20" y="0.0" width="335" height="48"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uYI-eO-pCA" secondAttribute="trailing" constant="20" id="2Oc-AX-kfb"/>
+                            <constraint firstAttribute="bottom" secondItem="uYI-eO-pCA" secondAttribute="bottom" id="gRz-Jb-rsa"/>
+                            <constraint firstItem="uYI-eO-pCA" firstAttribute="top" secondItem="3VT-EG-PLM" secondAttribute="top" id="igD-6K-2TQ"/>
+                            <constraint firstItem="uYI-eO-pCA" firstAttribute="leading" secondItem="3VT-EG-PLM" secondAttribute="leading" constant="20" id="qxp-t6-nUs"/>
+                        </constraints>
+                    </view>
+                </tableView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Wl1-sR-e7b">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
+                    <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <constraints>
+                <constraint firstItem="Lx8-3m-MAN" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="JqI-Ga-5Wk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Lx8-3m-MAN" secondAttribute="bottom" id="cRn-Js-b3J"/>
+                <constraint firstItem="Wl1-sR-e7b" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="eKd-bw-yJK"/>
+                <constraint firstItem="Lx8-3m-MAN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kQL-zR-yFS"/>
+                <constraint firstItem="Lx8-3m-MAN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="mO1-Rx-RDS"/>
+                <constraint firstItem="Wl1-sR-e7b" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uIc-1a-xfv"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
         </view>
     </objects>
 </document>

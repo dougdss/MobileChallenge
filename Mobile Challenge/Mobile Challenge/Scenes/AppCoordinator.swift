@@ -8,10 +8,29 @@
 
 import UIKit
 
-protocol AppCoordinator: Coordinator {
+class AppCoordinator: Coordinator {
     
-    var window: UIWindow? { set get }
-    var rootViewController: UIViewController { get }
+    var window: UIWindow?
+    var rootViewController: UINavigationController {
+        return UINavigationController()
+    }
+    
+    let apiService: ApiService = {
+        let api = ApiClient(urlSessionConfiguration: URLSessionConfiguration.default, completionHandlerQueue: OperationQueue.main)
+        return api
+    }()
+    
+    init(window: UIWindow?) {
+        self.window = window
+    }
+    
+    override func start() {
+        guard let window = window else {
+            return
+        }
+        
+        window.rootViewController = rootViewController
+        window.makeKeyAndVisible()
+    }
     
 }
-

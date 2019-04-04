@@ -8,21 +8,42 @@
 
 import UIKit
 
-class ContactsCoordinator: AppCoordinator {
+class ContactsAppCoordinator: Coordinator {
     
     var window: UIWindow?
-    var rootViewController: UIViewController {
-        return UINavigationController(rootViewController: ContactsViewController())
+    var rootViewController: UINavigationController {
+        let controller = ContactsViewController()
+        controller.viewModel = contactsViewModel
+        return UINavigationController(rootViewController: controller)
     }
     
-    init(window: UIWindow?) {
+    let apiService: ApiService
+    
+    var contactsViewModel: ContactsViewModel {
+        let contactsService = ContactsApiService(apiService: apiService)
+        let viewModel = ContactsViewModel(service: contactsService)
+        viewModel.coordinatorDelegate = self
+        return viewModel
+    }
+    
+    init(window: UIWindow?, apiService: ApiService) {
         self.window = window
+        self.apiService = apiService
     }
     
-    func start() {
+    override func start() {
         guard let window = window else { return }
         
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
+}
+
+extension ContactsAppCoordinator: ContactsViewModelCoordinatorDelegate {
+   
+    func didSelect(contact: Contact, from controller: UIViewController) {
+        
+    }
+    
+    
 }

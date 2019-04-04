@@ -8,8 +8,37 @@
 
 import Foundation
 
-protocol Coordinator {
+class Coordinator {
     
-    func start()
+    var childCoordinators: [Coordinator] = []
+    
+    func start() {
+        fatalError("should be implemented by subclasses")
+    }
+    
+    func finish() {
+        fatalError("should be implemented by subclasses")
+    }
+    
+    func addChildCoordinator(coordinator: Coordinator) {
+        childCoordinators.append(coordinator)
+    }
+    
+    func removeChildCoordinator(coordinator: Coordinator) {
+        if let index = childCoordinators.firstIndex(where: { (coord) -> Bool in
+            return coord == coordinator
+        }) {
+            childCoordinators.remove(at: index)
+        } else {
+            print("The coordinator passed for the function is not a child coordinator")
+        }
+    }
+}
+
+extension Coordinator: Equatable {
+    
+    static func ==(lhs: Coordinator, rhs: Coordinator) -> Bool {
+        return lhs === rhs
+    }
     
 }
