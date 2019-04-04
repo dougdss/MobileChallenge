@@ -37,6 +37,7 @@ class ContactsViewController: BaseNavigationControllerChild {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: ContactsSearchBarTableHeaderView.identifier, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: ContactsSearchBarTableHeaderView.identifier)
+        tableView.register(UINib(nibName: ContactTableViewCell.identifier, bundle: Bundle.main), forCellReuseIdentifier: ContactTableViewCell.identifier)
         configBackgroundView()
     }
     
@@ -52,13 +53,19 @@ extension ContactsViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         (searchBar as! ContactsSearchBar).isActive = true
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        tableView.isScrollEnabled = false // workaround for stop scrolling when tapping the headerView
+        if !self.navigationController!.isNavigationBarHidden {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            print("Hide")
+        }
+        
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         if searchBar.text == "" {
             (searchBar as! ContactsSearchBar).isActive = false
         }
+        tableView.isScrollEnabled = true 
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -98,16 +105,22 @@ extension ContactsViewController: ContactsErrorViewDelegate {
 
 extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return ContactTableViewCell.estimatedRowHeight
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numbersOfitems()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let viewdata = viewModel.itemFor(row: indexPath.row)
-        let cell = UITableViewCell()
-        cell.backgroundColor = .picpayDefaultBlackBackground
-        cell.textLabel?.textColor = .white
-        cell.textLabel?.text = viewdata.name
+        let cell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.identifier, for: indexPath) as! ContactTableViewCell
+        cell.configWithViewData(viewData: viewdata)
         return cell
     }
 

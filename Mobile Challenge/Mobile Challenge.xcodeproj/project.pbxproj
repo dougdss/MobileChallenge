@@ -30,6 +30,8 @@
 		A5C5C86D22547628003F3DCB /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C86C22547628003F3DCB /* UIColorExtensions.swift */; };
 		A5F6C10E22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5F6C10D22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib */; };
 		A5F6C110225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F6C10F225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift */; };
+		A5F6C11622566D500087A5DF /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F6C11422566D500087A5DF /* ContactTableViewCell.swift */; };
+		A5F6C11722566D500087A5DF /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5F6C11522566D500087A5DF /* ContactTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		A5C5C86C22547628003F3DCB /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		A5F6C10D22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsSearchBarTableHeaderView.xib; sourceTree = "<group>"; };
 		A5F6C10F225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchBarTableHeaderView.swift; sourceTree = "<group>"; };
+		A5F6C11422566D500087A5DF /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		A5F6C11522566D500087A5DF /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,11 +123,10 @@
 		A5C069382255B56A00897A6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A5F6C11322566D310087A5DF /* ContactTableViewCell */,
 				A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */,
-				A5C069482255D73A00897A6A /* ContactsErrorView.swift */,
-				A5C0694A2255D75D00897A6A /* ContactsErrorView.xib */,
-				A5F6C10D22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib */,
-				A5F6C10F225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift */,
+				A5F6C11222566BDB0087A5DF /* SearchHeaderView */,
+				A5F6C11122566BCC0087A5DF /* ErrorBackground */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -251,6 +254,33 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A5F6C11122566BCC0087A5DF /* ErrorBackground */ = {
+			isa = PBXGroup;
+			children = (
+				A5C069482255D73A00897A6A /* ContactsErrorView.swift */,
+				A5C0694A2255D75D00897A6A /* ContactsErrorView.xib */,
+			);
+			path = ErrorBackground;
+			sourceTree = "<group>";
+		};
+		A5F6C11222566BDB0087A5DF /* SearchHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				A5F6C10D22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib */,
+				A5F6C10F225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift */,
+			);
+			path = SearchHeaderView;
+			sourceTree = "<group>";
+		};
+		A5F6C11322566D310087A5DF /* ContactTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A5F6C11422566D500087A5DF /* ContactTableViewCell.swift */,
+				A5F6C11522566D500087A5DF /* ContactTableViewCell.xib */,
+			);
+			path = ContactTableViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -332,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F6C11722566D500087A5DF /* ContactTableViewCell.xib in Resources */,
 				A5C5C847225440C7003F3DCB /* LaunchScreen.storyboard in Resources */,
 				A5C0692E2255829F00897A6A /* ContactsViewController.xib in Resources */,
 				A5C0694B2255D75D00897A6A /* ContactsErrorView.xib in Resources */,
@@ -360,6 +391,7 @@
 				A5C0693022559D5000897A6A /* ContactsSearchBar.swift in Sources */,
 				A5C5C86D22547628003F3DCB /* UIColorExtensions.swift in Sources */,
 				A5C069472255CD7800897A6A /* ContactsService.swift in Sources */,
+				A5F6C11622566D500087A5DF /* ContactTableViewCell.swift in Sources */,
 				A5C069492255D73A00897A6A /* ContactsErrorView.swift in Sources */,
 				A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */,
 				A5C0693C2255B6F700897A6A /* Contact.swift in Sources */,
