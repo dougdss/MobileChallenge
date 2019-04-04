@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactsViewController" customModule="Mobile_Challenge" customModuleProvider="target">
             <connections>
                 <outlet property="indicator" destination="Wl1-sR-e7b" id="C9b-Re-AYc"/>
-                <outlet property="searchBar" destination="uYI-eO-pCA" id="ZzM-o2-bO0"/>
                 <outlet property="tableView" destination="Lx8-3m-MAN" id="lcd-xa-rxZ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="bVJ-lT-YxJ"/>
             </connections>
@@ -25,24 +24,7 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lx8-3m-MAN">
                     <rect key="frame" x="0.0" y="28" width="375" height="639"/>
-                    <color key="backgroundColor" red="0.11372549019607843" green="0.11764705882352941" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <view key="tableHeaderView" contentMode="scaleToFill" id="3VT-EG-PLM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" placeholder="A quem você deseja pagar?" translatesAutoresizingMaskIntoConstraints="NO" id="uYI-eO-pCA" customClass="ContactsSearchBar" customModule="Mobile_Challenge" customModuleProvider="target">
-                                <rect key="frame" x="20" y="0.0" width="335" height="48"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="uYI-eO-pCA" secondAttribute="trailing" constant="20" id="2Oc-AX-kfb"/>
-                            <constraint firstAttribute="bottom" secondItem="uYI-eO-pCA" secondAttribute="bottom" id="gRz-Jb-rsa"/>
-                            <constraint firstItem="uYI-eO-pCA" firstAttribute="top" secondItem="3VT-EG-PLM" secondAttribute="top" id="igD-6K-2TQ"/>
-                            <constraint firstItem="uYI-eO-pCA" firstAttribute="leading" secondItem="3VT-EG-PLM" secondAttribute="leading" constant="20" id="qxp-t6-nUs"/>
-                        </constraints>
-                    </view>
+                    <color key="backgroundColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Wl1-sR-e7b">
                     <rect key="frame" x="169" y="315" width="37" height="37"/>
@@ -61,5 +43,11 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
         </view>
+        <searchBar contentMode="redraw" placeholder="A quem você deseja pagar?" id="uYI-eO-pCA" customClass="ContactsSearchBar" customModule="Mobile_Challenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="48"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+            <point key="canvasLocation" x="-764" y="-103"/>
+        </searchBar>
     </objects>
 </document>

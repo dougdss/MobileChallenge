@@ -11,8 +11,8 @@ import UIKit
 class ContactsViewController: BaseNavigationControllerChild {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: ContactsSearchBar!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    var searchBar: ContactsSearchBar?
     
     var viewModel: ContactsViewModelType! {
         didSet {
@@ -23,21 +23,20 @@ class ContactsViewController: BaseNavigationControllerChild {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        
         viewModel.loadContacts()
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(gesture:)))
         tableView.addGestureRecognizer(tap)
     }
     
     @objc private func handleTap(gesture: UITapGestureRecognizer) {
-        searchBar.resignFirstResponder()
+        searchBar?.resignFirstResponder()
     }
     
     private func setupViews() {
         self.title = "Contatos"
-        searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(UINib(nibName: ContactsSearchBarTableHeaderView.identifier, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: ContactsSearchBarTableHeaderView.identifier)
         configBackgroundView()
     }
     
@@ -53,6 +52,7 @@ extension ContactsViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         (searchBar as! ContactsSearchBar).isActive = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -105,8 +105,37 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let viewdata = viewModel.itemFor(row: indexPath.row)
         let cell = UITableViewCell()
+        cell.backgroundColor = .picpayDefaultBlackBackground
+        cell.textLabel?.textColor = .white
         cell.textLabel?.text = viewdata.name
         return cell
     }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let searchHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: ContactsSearchBarTableHeaderView.identifier) as! ContactsSearchBarTableHeaderView
+        searchBar = searchHeader.searchBar
+        searchBar?.delegate = self
+        return searchHeader
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return ContactsSearchBar.defaultContainerHeight
+    }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // Very simple way of show/hide navigationBar - need improvement
+        let offset = scrollView.contentOffset.y
+        if offset > 20 {
+            if !self.navigationController!.isNavigationBarHidden {
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+                return
+            }
+        } else {
+            if self.navigationController!.isNavigationBarHidden {
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                return
+            }
+        }
+    }
 }

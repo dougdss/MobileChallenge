@@ -10,6 +10,8 @@ import UIKit
 
 class ContactsSearchBar: UISearchBar {
     
+    static let defaultContainerHeight: CGFloat = 64
+    
     var isActive: Bool = false {
         willSet {
             newValue ? setActiveState() : setInactiveState()

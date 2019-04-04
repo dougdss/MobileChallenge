@@ -28,6 +28,8 @@
 		A5C5C864225467F7003F3DCB /* ContactsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C863225467F7003F3DCB /* ContactsCoordinator.swift */; };
 		A5C5C86822546A19003F3DCB /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C86622546A19003F3DCB /* ContactsViewController.swift */; };
 		A5C5C86D22547628003F3DCB /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C86C22547628003F3DCB /* UIColorExtensions.swift */; };
+		A5F6C10E22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5F6C10D22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib */; };
+		A5F6C110225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F6C10F225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		A5C5C863225467F7003F3DCB /* ContactsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCoordinator.swift; sourceTree = "<group>"; };
 		A5C5C86622546A19003F3DCB /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		A5C5C86C22547628003F3DCB /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		A5F6C10D22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsSearchBarTableHeaderView.xib; sourceTree = "<group>"; };
+		A5F6C10F225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchBarTableHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +93,6 @@
 		A5C069312255B2CC00897A6A /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */,
 				A5C069322255B2FD00897A6A /* BaseNavigationControllerChild.swift */,
 				A5C069392255B6D000897A6A /* ViewState.swift */,
 			);
@@ -116,8 +119,11 @@
 		A5C069382255B56A00897A6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */,
 				A5C069482255D73A00897A6A /* ContactsErrorView.swift */,
 				A5C0694A2255D75D00897A6A /* ContactsErrorView.xib */,
+				A5F6C10D22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib */,
+				A5F6C10F225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 				A5C5C847225440C7003F3DCB /* LaunchScreen.storyboard in Resources */,
 				A5C0692E2255829F00897A6A /* ContactsViewController.xib in Resources */,
 				A5C0694B2255D75D00897A6A /* ContactsErrorView.xib in Resources */,
+				A5F6C10E22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib in Resources */,
 				A5C5C844225440C7003F3DCB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +365,7 @@
 				A5C0693C2255B6F700897A6A /* Contact.swift in Sources */,
 				A5C069442255BAA300897A6A /* ApiClient.swift in Sources */,
 				A5C0693F2255B73400897A6A /* ContactViewDataType.swift in Sources */,
+				A5F6C110225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift in Sources */,
 				A5C5C860225465FD003F3DCB /* AppCoordinator.swift in Sources */,
 				A5C5C83D225440C5003F3DCB /* AppDelegate.swift in Sources */,
 				A5C5C85E225465C4003F3DCB /* Coordinator.swift in Sources */,
