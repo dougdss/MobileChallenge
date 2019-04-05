@@ -23,20 +23,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="80.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Niu-V4-afi">
-                                <rect key="frame" x="20" y="8.5" width="64" height="64"/>
+                                <rect key="frame" x="30" y="8.5" width="64" height="64"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="1qS-De-49j"/>
                                     <constraint firstAttribute="width" constant="64" id="5c2-KE-S92"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@aliceromero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkB-Gj-38Q">
-                                <rect key="frame" x="92" y="18.5" width="220" height="21"/>
+                                <rect key="frame" x="110" y="18.5" width="202" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alice Romero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwp-2T-tOR">
-                                <rect key="frame" x="92" y="44.5" width="220" height="18"/>
+                                <rect key="frame" x="110" y="44.5" width="202" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -46,14 +47,14 @@
                         <constraints>
                             <constraint firstItem="gwp-2T-tOR" firstAttribute="bottom" secondItem="Niu-V4-afi" secondAttribute="bottom" constant="-10" id="0Zh-e4-GIQ"/>
                             <constraint firstItem="MkB-Gj-38Q" firstAttribute="top" secondItem="Niu-V4-afi" secondAttribute="top" constant="10" id="3cu-D6-8uH"/>
-                            <constraint firstItem="MkB-Gj-38Q" firstAttribute="leading" secondItem="Niu-V4-afi" secondAttribute="trailing" constant="8" id="FfT-FM-AdM"/>
+                            <constraint firstItem="MkB-Gj-38Q" firstAttribute="leading" secondItem="Niu-V4-afi" secondAttribute="trailing" constant="16" id="FfT-FM-AdM"/>
                             <constraint firstItem="Niu-V4-afi" firstAttribute="top" secondItem="mLh-yc-Lgk" secondAttribute="top" constant="8" id="HDo-TZ-ACl"/>
                             <constraint firstItem="Niu-V4-afi" firstAttribute="centerY" secondItem="mLh-yc-Lgk" secondAttribute="centerY" id="QN2-9X-ayf"/>
-                            <constraint firstItem="Niu-V4-afi" firstAttribute="leading" secondItem="mLh-yc-Lgk" secondAttribute="leading" constant="20" id="Wv7-cU-QXn"/>
+                            <constraint firstItem="Niu-V4-afi" firstAttribute="leading" secondItem="mLh-yc-Lgk" secondAttribute="leading" constant="30" id="Wv7-cU-QXn"/>
                             <constraint firstAttribute="trailing" secondItem="gwp-2T-tOR" secondAttribute="trailing" constant="8" id="dnA-2u-kG8"/>
                             <constraint firstAttribute="bottom" secondItem="Niu-V4-afi" secondAttribute="bottom" constant="8" id="gXT-C1-e6Y"/>
                             <constraint firstAttribute="trailing" secondItem="MkB-Gj-38Q" secondAttribute="trailing" constant="8" id="gca-yP-zRG"/>
-                            <constraint firstItem="gwp-2T-tOR" firstAttribute="leading" secondItem="Niu-V4-afi" secondAttribute="trailing" constant="8" id="qtg-YC-QOM"/>
+                            <constraint firstItem="gwp-2T-tOR" firstAttribute="leading" secondItem="Niu-V4-afi" secondAttribute="trailing" constant="16" id="qtg-YC-QOM"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -67,6 +68,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="nameLabel" destination="gwp-2T-tOR" id="uoY-9z-wtu"/>
+                <outlet property="userImageView" destination="Niu-V4-afi" id="I2D-Sf-KeN"/>
                 <outlet property="usernameLabel" destination="MkB-Gj-38Q" id="qDP-Ld-AZ1"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="146.62668665667167"/>

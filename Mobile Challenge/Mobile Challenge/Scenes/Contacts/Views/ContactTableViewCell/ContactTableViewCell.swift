@@ -15,10 +15,25 @@ class ContactTableViewCell: UITableViewCell {
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var userImageView: UIImageView!
     
     func configWithViewData(viewData: ContactViewDataType) {
         usernameLabel.text = viewData.username
         nameLabel.text = viewData.name
+        
+        userImageView.layer.cornerRadius = userImageView.frame.width / 2
+        userImageView.layer.masksToBounds = true
+        userImageView.contentMode = .scaleAspectFit
+        
+        guard let urlString = viewData.userImageUrl else { return }
+        
+        ImageDownloader().downloadImage(from: urlString) { [unowned self] (image, error) in
+            if let userImage = image {
+                DispatchQueue.main.async {
+                    self.userImageView.image = userImage
+                }
+            }
+        }
     }
     
 }

@@ -10,7 +10,7 @@ import UIKit
 
 protocol ContactViewDataType {
  
-    var userImage: UIImage? { get }
+    var userImageUrl: String? { get }
     var username: String { get }
     var name: String { get }
     
@@ -27,8 +27,8 @@ struct ContactViewData: ContactViewDataType {
         return contact.name
     }
     
-    var userImage: UIImage? {
-        return nil
+    var userImageUrl: String? {
+        return contact.imageUrl
     }
     
     let contact: Contact

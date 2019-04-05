@@ -38,6 +38,7 @@
 		A5FFCC8B2256E6E200828338 /* ContactsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFCC8A2256E6E200828338 /* ContactsRequest.swift */; };
 		A5FFCC8E2256E6FF00828338 /* ApiContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFCC8D2256E6FF00828338 /* ApiContact.swift */; };
 		A5FFCC92225718C600828338 /* ContactsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFCC91225718C600828338 /* ContactsServiceTests.swift */; };
+		A5FFCC94225727A000828338 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFCC93225727A000828338 /* ImageDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		A5FFCC8A2256E6E200828338 /* ContactsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRequest.swift; sourceTree = "<group>"; };
 		A5FFCC8D2256E6FF00828338 /* ApiContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiContact.swift; sourceTree = "<group>"; };
 		A5FFCC91225718C600828338 /* ContactsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsServiceTests.swift; sourceTree = "<group>"; };
+		A5FFCC93225727A000828338 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				A5C069432255BAA300897A6A /* ApiClient.swift */,
+				A5FFCC93225727A000828338 /* ImageDownloader.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				A5FFCC852256E57000828338 /* Result.swift in Sources */,
 				A5C069492255D73A00897A6A /* ContactsErrorView.swift in Sources */,
 				A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */,
+				A5FFCC94225727A000828338 /* ImageDownloader.swift in Sources */,
 				A5C0693C2255B6F700897A6A /* Contact.swift in Sources */,
 				A5C069442255BAA300897A6A /* ApiClient.swift in Sources */,
 				A5FFCC8B2256E6E200828338 /* ContactsRequest.swift in Sources */,
