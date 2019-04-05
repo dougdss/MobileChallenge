@@ -16,6 +16,12 @@ protocol ImageDownloaderProtocol {
 
 class ImageDownloader: ImageDownloaderProtocol {
     
+    let urlSession: URLSessionProtocol
+    
+    init(urlSession: URLSessionProtocol = URLSession.shared) {
+        self.urlSession = urlSession
+    }
+    
     func downloadImage(from url: String, completion: @escaping (UIImage?, Error?) -> Void) {
         guard let imageURL = URL(string: url) else {
             let error = NSError(domain: "challenge.imagedownloader.error", code: 997, userInfo: [NSLocalizedDescriptionKey: "could not create URL from string:\(url)"])
@@ -33,8 +39,7 @@ class ImageDownloader: ImageDownloaderProtocol {
         
         var request = URLRequest(url: imageURL)
         request.httpMethod = "GET"
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
+        urlSession.dataTask(with: request) { (data, response, error) in
             if error != nil {
                 completion(nil, error)
                 return
@@ -46,14 +51,13 @@ class ImageDownloader: ImageDownloaderProtocol {
             }
             
             guard let image = UIImage(data: imageData) else {
-                let error = NSError(domain: "challenge.imagedownloader.error", code: 996, userInfo: [NSLocalizedDescriptionKey: "could generate image from imageData"])
+                let error = NSError(domain: "challenge.imagedownloader.error", code: 996, userInfo: [NSLocalizedDescriptionKey: "could not generate image from imageData"])
                 completion(nil, error)
                 return
             }
             
             imageCache.setObject(image, forKey: stringObject)
             completion(image, nil)
-            
         }.resume()
     }
 }

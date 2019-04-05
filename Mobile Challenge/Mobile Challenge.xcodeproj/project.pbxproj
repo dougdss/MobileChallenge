@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A56CCF2522580E5500CCB98F /* ImageDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF2422580E5500CCB98F /* ImageDownloaderTests.swift */; };
+		A56CCF282258129700CCB98F /* ImageHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF272258129700CCB98F /* ImageHelpers.swift */; };
 		A5C0692E2255829F00897A6A /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5C0692D2255829F00897A6A /* ContactsViewController.xib */; };
 		A5C0693022559D5000897A6A /* ContactsSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */; };
 		A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C069352255B4C100897A6A /* ContactsViewModelType.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A56CCF2422580E5500CCB98F /* ImageDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderTests.swift; sourceTree = "<group>"; };
+		A56CCF272258129700CCB98F /* ImageHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelpers.swift; sourceTree = "<group>"; };
 		A5C0692D2255829F00897A6A /* ContactsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
 		A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchBar.swift; sourceTree = "<group>"; };
 		A5C069352255B4C100897A6A /* ContactsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModelType.swift; sourceTree = "<group>"; };
@@ -108,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A56CCF262258128900CCB98F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A56CCF272258129700CCB98F /* ImageHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		A5C069312255B2CC00897A6A /* Commons */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +218,7 @@
 		A5C5C850225440C7003F3DCB /* Mobile ChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				A56CCF262258128900CCB98F /* Helpers */,
 				A5FFCC7D2256E4B400828338 /* API */,
 				A5C5C853225440C7003F3DCB /* Info.plist */,
 			);
@@ -338,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				A5FFCC7E2256E4CA00828338 /* ApiClientTests.swift */,
+				A56CCF2422580E5500CCB98F /* ImageDownloaderTests.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -488,6 +502,8 @@
 			files = (
 				A5FFCC92225718C600828338 /* ContactsServiceTests.swift in Sources */,
 				A5FFCC7F2256E4CA00828338 /* ApiClientTests.swift in Sources */,
+				A56CCF2522580E5500CCB98F /* ImageDownloaderTests.swift in Sources */,
+				A56CCF282258129700CCB98F /* ImageHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

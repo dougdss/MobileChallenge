@@ -26,7 +26,6 @@ class ContactTableViewCell: UITableViewCell {
         userImageView.contentMode = .scaleAspectFit
         
         guard let urlString = viewData.userImageUrl else { return }
-        
         ImageDownloader().downloadImage(from: urlString) { [unowned self] (image, error) in
             if let userImage = image {
                 DispatchQueue.main.async {
