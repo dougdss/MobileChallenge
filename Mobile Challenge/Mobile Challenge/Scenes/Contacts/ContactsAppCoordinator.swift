@@ -17,7 +17,10 @@ class ContactsAppCoordinator: Coordinator {
         return UINavigationController(rootViewController: controller)
     }
     
-    let apiService: ApiService
+    let apiService: ApiService = {
+        let api = ApiClient(urlSessionConfiguration: URLSessionConfiguration.default, completionHandlerQueue: OperationQueue.main)
+        return api
+    }()
     
     var contactsViewModel: ContactsViewModel {
         let contactsService = ContactsApiService(apiService: apiService)
@@ -26,9 +29,8 @@ class ContactsAppCoordinator: Coordinator {
         return viewModel
     }
     
-    init(window: UIWindow?, apiService: ApiService) {
+    init(window: UIWindow?) {
         self.window = window
-        self.apiService = apiService
     }
     
     override func start() {

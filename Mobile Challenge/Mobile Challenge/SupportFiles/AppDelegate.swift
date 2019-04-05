@@ -18,14 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         customizeAppearance()
         
-        let apiService: ApiService = {
-            let api = ApiClient(urlSessionConfiguration: URLSessionConfiguration.default, completionHandlerQueue: OperationQueue.main)
-            return api
-        }()
-        
         window = UIWindow(frame: UIScreen.main.bounds)
-        appCoordinator = ContactsAppCoordinator(window: window, apiService: apiService)
-//        appCoordinator = AppCoordinator(window: window)
+        appCoordinator = ContactsAppCoordinator(window: window)
         appCoordinator.start()
         
         return true

@@ -21,19 +21,19 @@
                     <color key="backgroundColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <searchBar contentMode="redraw" placeholder="A quem você deseja pagar?" translatesAutoresizingMaskIntoConstraints="NO" id="Urv-Ja-IDi" customClass="ContactsSearchBar" customModule="Mobile_Challenge" customModuleProvider="target">
-                    <rect key="frame" x="30" y="4" width="315" height="56"/>
+                    <rect key="frame" x="30" y="8" width="315" height="48"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
             </subviews>
             <constraints>
                 <constraint firstItem="9VL-Jq-sGj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="FqS-oF-5M1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9VL-Jq-sGj" secondAttribute="trailing" id="ZEP-Zm-vjS"/>
-                <constraint firstItem="Urv-Ja-IDi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="b6A-ad-BCm"/>
+                <constraint firstItem="Urv-Ja-IDi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="b6A-ad-BCm"/>
                 <constraint firstAttribute="bottom" secondItem="9VL-Jq-sGj" secondAttribute="bottom" id="cQ4-zP-gcQ"/>
                 <constraint firstItem="Urv-Ja-IDi" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="gXe-U2-Kx0"/>
                 <constraint firstItem="Urv-Ja-IDi" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-30" id="hxN-Jf-zxK"/>
                 <constraint firstItem="9VL-Jq-sGj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rJq-bt-NYP"/>
-                <constraint firstItem="Urv-Ja-IDi" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-4" id="ulu-ei-kft"/>
+                <constraint firstItem="Urv-Ja-IDi" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-8" id="ulu-ei-kft"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

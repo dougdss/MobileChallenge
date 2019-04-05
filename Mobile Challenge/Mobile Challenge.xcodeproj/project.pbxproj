@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A5C0692E2255829F00897A6A /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5C0692D2255829F00897A6A /* ContactsViewController.xib */; };
 		A5C0693022559D5000897A6A /* ContactsSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */; };
-		A5C069332255B2FD00897A6A /* BaseNavigationControllerChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C069322255B2FD00897A6A /* BaseNavigationControllerChild.swift */; };
 		A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C069352255B4C100897A6A /* ContactsViewModelType.swift */; };
 		A5C0693A2255B6D000897A6A /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C069392255B6D000897A6A /* ViewState.swift */; };
 		A5C0693C2255B6F700897A6A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C0693B2255B6F700897A6A /* Contact.swift */; };
@@ -25,7 +24,7 @@
 		A5C5C852225440C7003F3DCB /* Mobile_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C851225440C7003F3DCB /* Mobile_ChallengeTests.swift */; };
 		A5C5C85E225465C4003F3DCB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C85D225465C4003F3DCB /* Coordinator.swift */; };
 		A5C5C860225465FD003F3DCB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C85F225465FD003F3DCB /* AppCoordinator.swift */; };
-		A5C5C864225467F7003F3DCB /* ContactsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C863225467F7003F3DCB /* ContactsCoordinator.swift */; };
+		A5C5C864225467F7003F3DCB /* ContactsAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C863225467F7003F3DCB /* ContactsAppCoordinator.swift */; };
 		A5C5C86822546A19003F3DCB /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C86622546A19003F3DCB /* ContactsViewController.swift */; };
 		A5C5C86D22547628003F3DCB /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C86C22547628003F3DCB /* UIColorExtensions.swift */; };
 		A5F6C10E22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5F6C10D22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib */; };
@@ -47,7 +46,6 @@
 /* Begin PBXFileReference section */
 		A5C0692D2255829F00897A6A /* ContactsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
 		A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchBar.swift; sourceTree = "<group>"; };
-		A5C069322255B2FD00897A6A /* BaseNavigationControllerChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationControllerChild.swift; sourceTree = "<group>"; };
 		A5C069352255B4C100897A6A /* ContactsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModelType.swift; sourceTree = "<group>"; };
 		A5C069392255B6D000897A6A /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		A5C0693B2255B6F700897A6A /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -67,7 +65,7 @@
 		A5C5C853225440C7003F3DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5C5C85D225465C4003F3DCB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A5C5C85F225465FD003F3DCB /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		A5C5C863225467F7003F3DCB /* ContactsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCoordinator.swift; sourceTree = "<group>"; };
+		A5C5C863225467F7003F3DCB /* ContactsAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsAppCoordinator.swift; sourceTree = "<group>"; };
 		A5C5C86622546A19003F3DCB /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		A5C5C86C22547628003F3DCB /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		A5F6C10D22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsSearchBarTableHeaderView.xib; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 		A5C069312255B2CC00897A6A /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				A5C069322255B2FD00897A6A /* BaseNavigationControllerChild.swift */,
 				A5C069392255B6D000897A6A /* ViewState.swift */,
 			);
 			path = Commons;
@@ -207,7 +204,7 @@
 		A5C5C861225467B3003F3DCB /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				A5C5C863225467F7003F3DCB /* ContactsCoordinator.swift */,
+				A5C5C863225467F7003F3DCB /* ContactsAppCoordinator.swift */,
 				A5C5C86522546A06003F3DCB /* ViewControllers */,
 				A5C069342255B40C00897A6A /* ViewModels */,
 				A5C0693D2255B71600897A6A /* ViewDatas */,
@@ -385,8 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5C5C864225467F7003F3DCB /* ContactsCoordinator.swift in Sources */,
-				A5C069332255B2FD00897A6A /* BaseNavigationControllerChild.swift in Sources */,
+				A5C5C864225467F7003F3DCB /* ContactsAppCoordinator.swift in Sources */,
 				A5C0693A2255B6D000897A6A /* ViewState.swift in Sources */,
 				A5C0693022559D5000897A6A /* ContactsSearchBar.swift in Sources */,
 				A5C5C86D22547628003F3DCB /* UIColorExtensions.swift in Sources */,

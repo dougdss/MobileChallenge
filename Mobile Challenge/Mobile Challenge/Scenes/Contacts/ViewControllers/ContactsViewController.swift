@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactsViewController: BaseNavigationControllerChild {
+class ContactsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
@@ -20,10 +20,31 @@ class ContactsViewController: BaseNavigationControllerChild {
         }
     }
     
+    //constants
+    let defaultTopContentInset: CGFloat = 100
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        
         viewModel.loadContacts()
+    }
+    
+    private func setupViews() {
+        self.title = "Contatos"
+        self.navigationController?.isNavigationBarHidden = true
+        view.backgroundColor = .picpayDefaultBlackBackground
+        
+        configTableView()
+        configBackgroundView()
+    }
+    
+    private func configTableView() {
+        tableView.contentInset.top = defaultTopContentInset
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: ContactsSearchBarTableHeaderView.identifier, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: ContactsSearchBarTableHeaderView.identifier)
+        tableView.register(UINib(nibName: ContactTableViewCell.identifier, bundle: Bundle.main), forCellReuseIdentifier: ContactTableViewCell.identifier)
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(gesture:)))
         tableView.addGestureRecognizer(tap)
     }
@@ -32,19 +53,14 @@ class ContactsViewController: BaseNavigationControllerChild {
         searchBar?.resignFirstResponder()
     }
     
-    private func setupViews() {
-        self.title = "Contatos"
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: ContactsSearchBarTableHeaderView.identifier, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: ContactsSearchBarTableHeaderView.identifier)
-        tableView.register(UINib(nibName: ContactTableViewCell.identifier, bundle: Bundle.main), forCellReuseIdentifier: ContactTableViewCell.identifier)
-        configBackgroundView()
-    }
-    
     private func configBackgroundView() {
         let errorView = ContactsErrorView()
         errorView.delegate = self
         tableView.backgroundView = errorView
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
 }
@@ -53,19 +69,15 @@ extension ContactsViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         (searchBar as! ContactsSearchBar).isActive = true
-        tableView.isScrollEnabled = false // workaround for stop scrolling when tapping the headerView
-        if !self.navigationController!.isNavigationBarHidden {
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-            print("Hide")
+        UIView.animate(withDuration: 0.3) { [unowned self] in
+            self.tableView.contentInset.top = 0
         }
-        
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         if searchBar.text == "" {
             (searchBar as! ContactsSearchBar).isActive = false
         }
-        tableView.isScrollEnabled = true 
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -136,19 +148,16 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        // Very simple way of show/hide navigationBar - need improvement
+
+        // verify and set the new offset for tableView
         let offset = scrollView.contentOffset.y
-        if offset > 20 {
-            if !self.navigationController!.isNavigationBarHidden {
-                self.navigationController?.setNavigationBarHidden(true, animated: true)
-                return
-            }
+        if offset < -defaultTopContentInset {
+            tableView.contentInset.top = defaultTopContentInset
+        } else if offset >= -defaultTopContentInset && offset <= 0 {
+            tableView.contentInset.top = -offset
         } else {
-            if self.navigationController!.isNavigationBarHidden {
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-                return
-            }
+            tableView.contentInset.top = 0
         }
     }
+
 }
