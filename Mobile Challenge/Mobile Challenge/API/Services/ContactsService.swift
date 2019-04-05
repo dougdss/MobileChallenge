@@ -8,40 +8,9 @@
 
 import Foundation
 
-struct ApiContact: Decodable {
-    
-    var id: Int
-    var name: String
-    var img: String
-    var username: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case img
-        case username
-    }
-    
-    var contact: Contact {
-        return Contact(id: id, name: name, imageUrl: img, username: username)
-    }
-    
-}
-
-struct ContactsRequest: ApiRequest {
-    
-    var urlRequest: URLRequest {
-        let url = URL(string: "http://careers.picpay.com/tests/mobdev/users")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        return request
-    }
-}
-
 protocol ContactsService {
     func getContacts(completion: @escaping (Result<[Contact]>) -> Void)
 }
-
 
 class ContactsApiService {
     

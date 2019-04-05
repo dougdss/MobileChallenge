@@ -21,7 +21,6 @@
 		A5C5C83D225440C5003F3DCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C83C225440C5003F3DCB /* AppDelegate.swift */; };
 		A5C5C844225440C7003F3DCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5C5C843225440C7003F3DCB /* Assets.xcassets */; };
 		A5C5C847225440C7003F3DCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C5C845225440C7003F3DCB /* LaunchScreen.storyboard */; };
-		A5C5C852225440C7003F3DCB /* Mobile_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C851225440C7003F3DCB /* Mobile_ChallengeTests.swift */; };
 		A5C5C85E225465C4003F3DCB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C85D225465C4003F3DCB /* Coordinator.swift */; };
 		A5C5C860225465FD003F3DCB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C85F225465FD003F3DCB /* AppCoordinator.swift */; };
 		A5C5C864225467F7003F3DCB /* ContactsAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C863225467F7003F3DCB /* ContactsAppCoordinator.swift */; };
@@ -31,6 +30,14 @@
 		A5F6C110225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F6C10F225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift */; };
 		A5F6C11622566D500087A5DF /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F6C11422566D500087A5DF /* ContactTableViewCell.swift */; };
 		A5F6C11722566D500087A5DF /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5F6C11522566D500087A5DF /* ContactTableViewCell.xib */; };
+		A5FFCC7F2256E4CA00828338 /* ApiClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFCC7E2256E4CA00828338 /* ApiClientTests.swift */; };
+		A5FFCC812256E50900828338 /* ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFCC802256E50900828338 /* ApiErrors.swift */; };
+		A5FFCC832256E55900828338 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFCC822256E55900828338 /* ApiResponse.swift */; };
+		A5FFCC852256E57000828338 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFCC842256E57000828338 /* Result.swift */; };
+		A5FFCC872256E5A700828338 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFCC862256E5A700828338 /* ApiRequest.swift */; };
+		A5FFCC8B2256E6E200828338 /* ContactsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFCC8A2256E6E200828338 /* ContactsRequest.swift */; };
+		A5FFCC8E2256E6FF00828338 /* ApiContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFCC8D2256E6FF00828338 /* ApiContact.swift */; };
+		A5FFCC92225718C600828338 /* ContactsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FFCC91225718C600828338 /* ContactsServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +68,6 @@
 		A5C5C846225440C7003F3DCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5C5C848225440C7003F3DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5C5C84D225440C7003F3DCB /* Mobile ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mobile ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5C5C851225440C7003F3DCB /* Mobile_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile_ChallengeTests.swift; sourceTree = "<group>"; };
 		A5C5C853225440C7003F3DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5C5C85D225465C4003F3DCB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A5C5C85F225465FD003F3DCB /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -72,6 +78,14 @@
 		A5F6C10F225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchBarTableHeaderView.swift; sourceTree = "<group>"; };
 		A5F6C11422566D500087A5DF /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		A5F6C11522566D500087A5DF /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
+		A5FFCC7E2256E4CA00828338 /* ApiClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientTests.swift; sourceTree = "<group>"; };
+		A5FFCC802256E50900828338 /* ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrors.swift; sourceTree = "<group>"; };
+		A5FFCC822256E55900828338 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		A5FFCC842256E57000828338 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		A5FFCC862256E5A700828338 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		A5FFCC8A2256E6E200828338 /* ContactsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRequest.swift; sourceTree = "<group>"; };
+		A5FFCC8D2256E6FF00828338 /* ApiContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiContact.swift; sourceTree = "<group>"; };
+		A5FFCC91225718C600828338 /* ContactsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +153,13 @@
 		A5C069422255BA9100897A6A /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A5FFCC8C2256E6F400828338 /* Entities */,
+				A5FFCC892256E6B500828338 /* Requests */,
+				A5FFCC882256E6AA00828338 /* Clients */,
 				A5C069452255CD2B00897A6A /* Services */,
-				A5C069432255BAA300897A6A /* ApiClient.swift */,
+				A5FFCC802256E50900828338 /* ApiErrors.swift */,
+				A5FFCC822256E55900828338 /* ApiResponse.swift */,
+				A5FFCC842256E57000828338 /* Result.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -185,7 +204,7 @@
 		A5C5C850225440C7003F3DCB /* Mobile ChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				A5C5C851225440C7003F3DCB /* Mobile_ChallengeTests.swift */,
+				A5FFCC7D2256E4B400828338 /* API */,
 				A5C5C853225440C7003F3DCB /* Info.plist */,
 			);
 			path = "Mobile ChallengeTests";
@@ -278,6 +297,56 @@
 			path = ContactTableViewCell;
 			sourceTree = "<group>";
 		};
+		A5FFCC7D2256E4B400828338 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A5FFCC90225718B500828338 /* Services */,
+				A5FFCC8F2256E76A00828338 /* Clients */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A5FFCC882256E6AA00828338 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				A5C069432255BAA300897A6A /* ApiClient.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		A5FFCC892256E6B500828338 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				A5FFCC862256E5A700828338 /* ApiRequest.swift */,
+				A5FFCC8A2256E6E200828338 /* ContactsRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		A5FFCC8C2256E6F400828338 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A5FFCC8D2256E6FF00828338 /* ApiContact.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		A5FFCC8F2256E76A00828338 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				A5FFCC7E2256E4CA00828338 /* ApiClientTests.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		A5FFCC90225718B500828338 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A5FFCC91225718C600828338 /* ContactsServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -331,6 +400,7 @@
 					};
 					A5C5C84C225440C7003F3DCB = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = A5C5C838225440C5003F3DCB;
 					};
 				};
@@ -387,12 +457,18 @@
 				A5C0693022559D5000897A6A /* ContactsSearchBar.swift in Sources */,
 				A5C5C86D22547628003F3DCB /* UIColorExtensions.swift in Sources */,
 				A5C069472255CD7800897A6A /* ContactsService.swift in Sources */,
+				A5FFCC872256E5A700828338 /* ApiRequest.swift in Sources */,
 				A5F6C11622566D500087A5DF /* ContactTableViewCell.swift in Sources */,
+				A5FFCC852256E57000828338 /* Result.swift in Sources */,
 				A5C069492255D73A00897A6A /* ContactsErrorView.swift in Sources */,
 				A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */,
 				A5C0693C2255B6F700897A6A /* Contact.swift in Sources */,
 				A5C069442255BAA300897A6A /* ApiClient.swift in Sources */,
+				A5FFCC8B2256E6E200828338 /* ContactsRequest.swift in Sources */,
+				A5FFCC832256E55900828338 /* ApiResponse.swift in Sources */,
 				A5C0693F2255B73400897A6A /* ContactViewDataType.swift in Sources */,
+				A5FFCC812256E50900828338 /* ApiErrors.swift in Sources */,
+				A5FFCC8E2256E6FF00828338 /* ApiContact.swift in Sources */,
 				A5F6C110225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift in Sources */,
 				A5C5C860225465FD003F3DCB /* AppCoordinator.swift in Sources */,
 				A5C5C83D225440C5003F3DCB /* AppDelegate.swift in Sources */,
@@ -406,7 +482,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5C5C852225440C7003F3DCB /* Mobile_ChallengeTests.swift in Sources */,
+				A5FFCC92225718C600828338 /* ContactsServiceTests.swift in Sources */,
+				A5FFCC7F2256E4CA00828338 /* ApiClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +664,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Mobile ChallengeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -596,6 +674,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.douglas.santos.Mobile-ChallengeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mobile Challenge.app/Mobile Challenge";
@@ -607,6 +686,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Mobile ChallengeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
