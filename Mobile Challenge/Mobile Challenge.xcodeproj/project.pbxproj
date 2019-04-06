@@ -11,6 +11,8 @@
 		A56CCF282258129700CCB98F /* ImageHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF272258129700CCB98F /* ImageHelpers.swift */; };
 		A56CCF2B22591A2500CCB98F /* TestDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF2A22591A2500CCB98F /* TestDoubles.swift */; };
 		A56CCF2D22591A4800CCB98F /* UrlSessionStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF2C22591A4800CCB98F /* UrlSessionStub.swift */; };
+		A56CCF3222592F1A00CCB98F /* ContactsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF3122592F1A00CCB98F /* ContactsViewModelTests.swift */; };
+		A56CCF3422592F8F00CCB98F /* ApiServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF3322592F8F00CCB98F /* ApiServiceSpy.swift */; };
 		A5C0692E2255829F00897A6A /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5C0692D2255829F00897A6A /* ContactsViewController.xib */; };
 		A5C0693022559D5000897A6A /* ContactsSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */; };
 		A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C069352255B4C100897A6A /* ContactsViewModelType.swift */; };
@@ -60,6 +62,8 @@
 		A56CCF272258129700CCB98F /* ImageHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelpers.swift; sourceTree = "<group>"; };
 		A56CCF2A22591A2500CCB98F /* TestDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDoubles.swift; sourceTree = "<group>"; };
 		A56CCF2C22591A4800CCB98F /* UrlSessionStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlSessionStub.swift; sourceTree = "<group>"; };
+		A56CCF3122592F1A00CCB98F /* ContactsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModelTests.swift; sourceTree = "<group>"; };
+		A56CCF3322592F8F00CCB98F /* ApiServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceSpy.swift; sourceTree = "<group>"; };
 		A5C0692D2255829F00897A6A /* ContactsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
 		A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchBar.swift; sourceTree = "<group>"; };
 		A5C069352255B4C100897A6A /* ContactsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModelType.swift; sourceTree = "<group>"; };
@@ -122,8 +126,33 @@
 				A56CCF272258129700CCB98F /* ImageHelpers.swift */,
 				A56CCF2A22591A2500CCB98F /* TestDoubles.swift */,
 				A56CCF2C22591A4800CCB98F /* UrlSessionStub.swift */,
+				A56CCF3322592F8F00CCB98F /* ApiServiceSpy.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A56CCF2E22592EE600CCB98F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A56CCF3022592F0A00CCB98F /* ViewControllers */,
+				A56CCF2F22592F0500CCB98F /* ViewModels */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A56CCF2F22592F0500CCB98F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A56CCF3122592F1A00CCB98F /* ContactsViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A56CCF3022592F0A00CCB98F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		A5C069312255B2CC00897A6A /* Commons */ = {
@@ -226,6 +255,7 @@
 			children = (
 				A5C5C853225440C7003F3DCB /* Info.plist */,
 				A56CCF262258128900CCB98F /* Helpers */,
+				A56CCF2E22592EE600CCB98F /* Scenes */,
 				A5FFCC7D2256E4B400828338 /* API */,
 			);
 			path = "Mobile ChallengeTests";
@@ -510,6 +540,8 @@
 				A5FFCC7F2256E4CA00828338 /* ApiClientTests.swift in Sources */,
 				A56CCF2D22591A4800CCB98F /* UrlSessionStub.swift in Sources */,
 				A56CCF2522580E5500CCB98F /* ImageDownloaderTests.swift in Sources */,
+				A56CCF3222592F1A00CCB98F /* ContactsViewModelTests.swift in Sources */,
+				A56CCF3422592F8F00CCB98F /* ApiServiceSpy.swift in Sources */,
 				A56CCF2B22591A2500CCB98F /* TestDoubles.swift in Sources */,
 				A56CCF282258129700CCB98F /* ImageHelpers.swift in Sources */,
 			);

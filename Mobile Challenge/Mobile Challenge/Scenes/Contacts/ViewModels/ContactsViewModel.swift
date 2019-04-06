@@ -38,7 +38,7 @@ class ContactsViewModel {
     
     // networking
     
-    func getContacts() {
+    private func getContacts() {
         viewDelegate?.updateState(.loading)
         service.getContacts { (result: Result<[Contact]>) in
             self.viewDelegate?.updateState(.loaded)
@@ -52,7 +52,7 @@ class ContactsViewModel {
         }
     }
     
-    func getFilteredContacts(searchText: String) {
+    private func getFilteredContacts(searchText: String) {
         
         //Simple Filter for contacts
         let filter = contacts.filter { (contact: Contact) -> Bool in
