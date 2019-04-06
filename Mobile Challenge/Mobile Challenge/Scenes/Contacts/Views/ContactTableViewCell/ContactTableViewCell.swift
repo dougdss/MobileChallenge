@@ -17,13 +17,17 @@ class ContactTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     
-    func configWithViewData(viewData: ContactViewDataType) {
+    @IBOutlet weak var cellTopConstraint: NSLayoutConstraint!
+    
+    func configWithViewData(viewData: ContactViewDataType, isFirstRow: Bool) {
         usernameLabel.text = viewData.username
         nameLabel.text = viewData.name
         
         userImageView.layer.cornerRadius = userImageView.frame.width / 2
         userImageView.layer.masksToBounds = true
         userImageView.contentMode = .scaleAspectFit
+        
+        cellTopConstraint.constant = isFirstRow ? 28 : 8
         
         guard let urlString = viewData.userImageUrl else { return }
         ImageDownloader().downloadImage(from: urlString) { [unowned self] (image, error) in
@@ -33,6 +37,11 @@ class ContactTableViewCell: UITableViewCell {
                 }
             }
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView?.image = nil
     }
     
 }

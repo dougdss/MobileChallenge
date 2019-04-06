@@ -154,8 +154,8 @@
 		A5C069382255B56A00897A6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A5F6C11322566D310087A5DF /* ContactTableViewCell */,
 				A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */,
+				A5F6C11322566D310087A5DF /* ContactTableViewCell */,
 				A5F6C11222566BDB0087A5DF /* SearchHeaderView */,
 				A5F6C11122566BCC0087A5DF /* ErrorBackground */,
 			);

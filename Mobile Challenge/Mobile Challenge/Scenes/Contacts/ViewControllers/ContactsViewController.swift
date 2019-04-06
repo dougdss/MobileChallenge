@@ -118,6 +118,9 @@ extension ContactsViewController: ContactsErrorViewDelegate {
 extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return ContactTableViewCell.estimatedRowHeight + 20
+        }
         return UITableView.automaticDimension
     }
     
@@ -132,7 +135,7 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let viewdata = viewModel.itemFor(row: indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.identifier, for: indexPath) as! ContactTableViewCell
-        cell.configWithViewData(viewData: viewdata)
+        cell.configWithViewData(viewData: viewdata,isFirstRow: indexPath.row == 0)
         return cell
     }
 
