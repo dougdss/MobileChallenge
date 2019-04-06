@@ -14,6 +14,7 @@
 		A56CCF3222592F1A00CCB98F /* ContactsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF3122592F1A00CCB98F /* ContactsViewModelTests.swift */; };
 		A56CCF3422592F8F00CCB98F /* ApiServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF3322592F8F00CCB98F /* ApiServiceSpy.swift */; };
 		A56CCF362259551600CCB98F /* ContactsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF352259551600CCB98F /* ContactsViewControllerTests.swift */; };
+		A56CCF392259643D00CCB98F /* ContactsAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF382259643D00CCB98F /* ContactsAppCoordinator.swift */; };
 		A5C0692E2255829F00897A6A /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5C0692D2255829F00897A6A /* ContactsViewController.xib */; };
 		A5C0693022559D5000897A6A /* ContactsSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */; };
 		A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C069352255B4C100897A6A /* ContactsViewModelType.swift */; };
@@ -66,6 +67,7 @@
 		A56CCF3122592F1A00CCB98F /* ContactsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModelTests.swift; sourceTree = "<group>"; };
 		A56CCF3322592F8F00CCB98F /* ApiServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceSpy.swift; sourceTree = "<group>"; };
 		A56CCF352259551600CCB98F /* ContactsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewControllerTests.swift; sourceTree = "<group>"; };
+		A56CCF382259643D00CCB98F /* ContactsAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsAppCoordinator.swift; sourceTree = "<group>"; };
 		A5C0692D2255829F00897A6A /* ContactsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
 		A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchBar.swift; sourceTree = "<group>"; };
 		A5C069352255B4C100897A6A /* ContactsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModelType.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		A56CCF37225963C500CCB98F /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				A56CCF382259643D00CCB98F /* ContactsAppCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				A56CCF3422592F8F00CCB98F /* ApiServiceSpy.swift in Sources */,
 				A56CCF2B22591A2500CCB98F /* TestDoubles.swift in Sources */,
 				A56CCF282258129700CCB98F /* ImageHelpers.swift in Sources */,
+				A56CCF392259643D00CCB98F /* ContactsAppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

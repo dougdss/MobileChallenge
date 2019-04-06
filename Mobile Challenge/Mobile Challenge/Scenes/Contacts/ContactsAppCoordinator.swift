@@ -22,12 +22,12 @@ class ContactsAppCoordinator: Coordinator {
         return api
     }()
     
-    var contactsViewModel: ContactsViewModel {
+    lazy var contactsViewModel: ContactsViewModel = {
         let contactsService = ContactsApiService(apiService: apiService)
         let viewModel = ContactsViewModel(service: contactsService)
         viewModel.coordinatorDelegate = self
         return viewModel
-    }
+    }()
     
     init(window: UIWindow?) {
         self.window = window
