@@ -78,10 +78,17 @@ extension ContactsViewController: UISearchBarDelegate {
         if searchBar.text == "" {
             (searchBar as! ContactsSearchBar).isActive = false
         }
+        viewModel.searchFor(text: searchBar.text ?? "")
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) { [unowned self] in
+            self.viewModel.searchFor(text: searchText)
+        }
     }
     
 }

@@ -52,11 +52,17 @@ class ContactsViewModel {
         }
     }
     
-    func getFilteredContacts() {
-        //Filter contacts
+    func getFilteredContacts(searchText: String) {
         
-        filteredContacts = []
+        //Simple Filter for contacts
+        let filter = contacts.filter { (contact: Contact) -> Bool in
+            return  contact.name.lowercased().contains(searchText.lowercased()) ||
+                contact.username.lowercased().contains(searchText.lowercased())
+        }
+        
+        filteredContacts = filter
         viewDelegate?.updateScreen()
+        viewDelegate?.updateState(.loaded)
     }
     
 }
@@ -75,6 +81,7 @@ extension ContactsViewModel: ContactsViewModelType {
     func searchFor(text: String) {
         guard !text.isEmpty else {
             isSearching = false
+            viewDelegate?.updateScreen()
             return
         }
         
@@ -82,11 +89,12 @@ extension ContactsViewModel: ContactsViewModelType {
         viewDelegate?.updateState(.loading)
         
         isSearching = true
-        getFilteredContacts()
+        getFilteredContacts(searchText: text)
     }
     
     func didSelect(row: Int, from controller: UIViewController) {
         let contact = isSearching ? filteredContacts[row] : contacts[row]
         coordinatorDelegate?.didSelect(contact: contact, from: controller)
     }
+    
 }

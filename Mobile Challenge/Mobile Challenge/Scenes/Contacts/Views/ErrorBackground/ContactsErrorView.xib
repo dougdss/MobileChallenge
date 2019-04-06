@@ -23,7 +23,9 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWv-VY-FPZ">
                     <rect key="frame" x="124.5" y="318.5" width="126" height="30"/>
-                    <state key="normal" title="Tentar Novamente"/>
+                    <state key="normal" title="Tentar Novamente">
+                        <color key="titleColor" red="0.35686274509803922" green="0.76470588235294112" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
                     <connections>
                         <action selector="tryAgainButtonTapped:" destination="-1" eventType="touchUpInside" id="BMs-UC-9Xo"/>
                     </connections>
@@ -31,11 +33,11 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Algo Deu errado!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oo0-b3-ke6">
                     <rect key="frame" x="122.5" y="289.5" width="130" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="UWv-VY-FPZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="04C-8t-nPI"/>
                 <constraint firstItem="UWv-VY-FPZ" firstAttribute="top" secondItem="oo0-b3-ke6" secondAttribute="bottom" constant="8" id="FaQ-5S-2KZ"/>

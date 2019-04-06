@@ -224,9 +224,9 @@
 		A5C5C850225440C7003F3DCB /* Mobile ChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				A5C5C853225440C7003F3DCB /* Info.plist */,
 				A56CCF262258128900CCB98F /* Helpers */,
 				A5FFCC7D2256E4B400828338 /* API */,
-				A5C5C853225440C7003F3DCB /* Info.plist */,
 			);
 			path = "Mobile ChallengeTests";
 			sourceTree = "<group>";
