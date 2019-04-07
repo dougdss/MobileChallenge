@@ -33,7 +33,7 @@ class ContactsSearchBar: UISearchBar {
         setPositionAdjustment(UIOffset(horizontal: frame.width / 10, vertical: 0), for: UISearchBar.Icon.search)
         searchTextPositionAdjustment = UIOffset(horizontal: 8, vertical: 0)
         placeholder = "A quem você deseja pagar?"
-        barTintColor = .picpaySearchBarBackground
+        barTintColor = .picpaySearchBarBackgroundColor
         layer.cornerRadius = frame.height / 2
         layer.masksToBounds = true
     }

@@ -30,10 +30,15 @@ class ContactsViewController: UIViewController {
         viewModel.loadContacts()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     private func setupViews() {
-        self.title = "Contatos"
+        self.title = ""
         self.navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = .picpayDefaultBlackBackground
+        view.backgroundColor = .picpayDefaultBlackBackgroundColor
         
         configTableView()
         configBackgroundView()

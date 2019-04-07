@@ -15,6 +15,11 @@
 		A56CCF3422592F8F00CCB98F /* ApiServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF3322592F8F00CCB98F /* ApiServiceSpy.swift */; };
 		A56CCF362259551600CCB98F /* ContactsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF352259551600CCB98F /* ContactsViewControllerTests.swift */; };
 		A56CCF392259643D00CCB98F /* ContactsAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF382259643D00CCB98F /* ContactsAppCoordinator.swift */; };
+		A56CCF3C2259AD6300CCB98F /* RegisterCardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF3B2259AD6300CCB98F /* RegisterCardCoordinator.swift */; };
+		A56CCF422259AEED00CCB98F /* RegisterCardViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF412259AEED00CCB98F /* RegisterCardViewModelType.swift */; };
+		A56CCF442259AF0E00CCB98F /* RegisterCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF432259AF0E00CCB98F /* RegisterCardViewModel.swift */; };
+		A56CCF472259AF3500CCB98F /* RegisterCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF452259AF3500CCB98F /* RegisterCardViewController.swift */; };
+		A56CCF482259AF3500CCB98F /* RegisterCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A56CCF462259AF3500CCB98F /* RegisterCardViewController.xib */; };
 		A5C0692E2255829F00897A6A /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5C0692D2255829F00897A6A /* ContactsViewController.xib */; };
 		A5C0693022559D5000897A6A /* ContactsSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */; };
 		A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C069352255B4C100897A6A /* ContactsViewModelType.swift */; };
@@ -68,6 +73,11 @@
 		A56CCF3322592F8F00CCB98F /* ApiServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceSpy.swift; sourceTree = "<group>"; };
 		A56CCF352259551600CCB98F /* ContactsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewControllerTests.swift; sourceTree = "<group>"; };
 		A56CCF382259643D00CCB98F /* ContactsAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsAppCoordinator.swift; sourceTree = "<group>"; };
+		A56CCF3B2259AD6300CCB98F /* RegisterCardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCardCoordinator.swift; sourceTree = "<group>"; };
+		A56CCF412259AEED00CCB98F /* RegisterCardViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCardViewModelType.swift; sourceTree = "<group>"; };
+		A56CCF432259AF0E00CCB98F /* RegisterCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCardViewModel.swift; sourceTree = "<group>"; };
+		A56CCF452259AF3500CCB98F /* RegisterCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCardViewController.swift; sourceTree = "<group>"; };
+		A56CCF462259AF3500CCB98F /* RegisterCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCardViewController.xib; sourceTree = "<group>"; };
 		A5C0692D2255829F00897A6A /* ContactsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
 		A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchBar.swift; sourceTree = "<group>"; };
 		A5C069352255B4C100897A6A /* ContactsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModelType.swift; sourceTree = "<group>"; };
@@ -166,6 +176,50 @@
 				A56CCF382259643D00CCB98F /* ContactsAppCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		A56CCF3A2259AD4800CCB98F /* RegisterCard */ = {
+			isa = PBXGroup;
+			children = (
+				A56CCF3B2259AD6300CCB98F /* RegisterCardCoordinator.swift */,
+				A56CCF3D2259AD6700CCB98F /* ViewControllers */,
+				A56CCF3E2259AD7200CCB98F /* ViewModels */,
+				A56CCF3F2259AD8200CCB98F /* Models */,
+				A56CCF402259AD8900CCB98F /* Views */,
+			);
+			path = RegisterCard;
+			sourceTree = "<group>";
+		};
+		A56CCF3D2259AD6700CCB98F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A56CCF452259AF3500CCB98F /* RegisterCardViewController.swift */,
+				A56CCF462259AF3500CCB98F /* RegisterCardViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A56CCF3E2259AD7200CCB98F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A56CCF412259AEED00CCB98F /* RegisterCardViewModelType.swift */,
+				A56CCF432259AF0E00CCB98F /* RegisterCardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A56CCF3F2259AD8200CCB98F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A56CCF402259AD8900CCB98F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A5C069312255B2CC00897A6A /* Commons */ = {
@@ -281,6 +335,7 @@
 				A5C5C85D225465C4003F3DCB /* Coordinator.swift */,
 				A5C5C85F225465FD003F3DCB /* AppCoordinator.swift */,
 				A5C5C861225467B3003F3DCB /* Contacts */,
+				A56CCF3A2259AD4800CCB98F /* RegisterCard */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -499,6 +554,7 @@
 				A5F6C11722566D500087A5DF /* ContactTableViewCell.xib in Resources */,
 				A5C5C847225440C7003F3DCB /* LaunchScreen.storyboard in Resources */,
 				A5C0692E2255829F00897A6A /* ContactsViewController.xib in Resources */,
+				A56CCF482259AF3500CCB98F /* RegisterCardViewController.xib in Resources */,
 				A5C0694B2255D75D00897A6A /* ContactsErrorView.xib in Resources */,
 				A5F6C10E22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib in Resources */,
 				A5C5C844225440C7003F3DCB /* Assets.xcassets in Resources */,
@@ -530,19 +586,23 @@
 				A5C069492255D73A00897A6A /* ContactsErrorView.swift in Sources */,
 				A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */,
 				A5FFCC94225727A000828338 /* ImageDownloader.swift in Sources */,
+				A56CCF442259AF0E00CCB98F /* RegisterCardViewModel.swift in Sources */,
 				A5C0693C2255B6F700897A6A /* Contact.swift in Sources */,
 				A5C069442255BAA300897A6A /* ApiClient.swift in Sources */,
 				A5FFCC8B2256E6E200828338 /* ContactsRequest.swift in Sources */,
 				A5FFCC832256E55900828338 /* ApiResponse.swift in Sources */,
+				A56CCF422259AEED00CCB98F /* RegisterCardViewModelType.swift in Sources */,
 				A5C0693F2255B73400897A6A /* ContactViewDataType.swift in Sources */,
 				A5FFCC812256E50900828338 /* ApiErrors.swift in Sources */,
 				A5FFCC8E2256E6FF00828338 /* ApiContact.swift in Sources */,
 				A5F6C110225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift in Sources */,
 				A5C5C860225465FD003F3DCB /* AppCoordinator.swift in Sources */,
+				A56CCF472259AF3500CCB98F /* RegisterCardViewController.swift in Sources */,
 				A5C5C83D225440C5003F3DCB /* AppDelegate.swift in Sources */,
 				A5C5C85E225465C4003F3DCB /* Coordinator.swift in Sources */,
 				A5C069412255B79A00897A6A /* ContactsViewModel.swift in Sources */,
 				A5C5C86822546A19003F3DCB /* ContactsViewController.swift in Sources */,
+				A56CCF3C2259AD6300CCB98F /* RegisterCardCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
