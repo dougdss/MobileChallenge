@@ -43,14 +43,9 @@ class ContactsViewController: UIViewController {
         tableView.contentInset.top = defaultTopContentInset
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.keyboardDismissMode = .interactive
         tableView.register(UINib(nibName: ContactsSearchBarTableHeaderView.identifier, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: ContactsSearchBarTableHeaderView.identifier)
         tableView.register(UINib(nibName: ContactTableViewCell.identifier, bundle: Bundle.main), forCellReuseIdentifier: ContactTableViewCell.identifier)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(gesture:)))
-        tableView.addGestureRecognizer(tap)
-    }
-    
-    @objc private func handleTap(gesture: UITapGestureRecognizer) {
-        searchBar?.resignFirstResponder()
     }
     
     private func configBackgroundView() {
@@ -155,6 +150,11 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return ContactsSearchBar.defaultContainerHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        viewModel.didSelect(row: indexPath.row, from: self)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

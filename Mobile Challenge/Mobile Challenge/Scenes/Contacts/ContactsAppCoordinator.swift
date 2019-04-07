@@ -44,7 +44,7 @@ class ContactsAppCoordinator: Coordinator {
 extension ContactsAppCoordinator: ContactsViewModelCoordinatorDelegate {
    
     func didSelect(contact: Contact, from controller: UIViewController) {
-        
+        print(contact)
     }
     
     
