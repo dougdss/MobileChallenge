@@ -20,6 +20,18 @@
 		A56CCF442259AF0E00CCB98F /* RegisterCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF432259AF0E00CCB98F /* RegisterCardViewModel.swift */; };
 		A56CCF472259AF3500CCB98F /* RegisterCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF452259AF3500CCB98F /* RegisterCardViewController.swift */; };
 		A56CCF482259AF3500CCB98F /* RegisterCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A56CCF462259AF3500CCB98F /* RegisterCardViewController.xib */; };
+		A56CCF4B225A360F00CCB98F /* RegisterCardFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF4A225A360F00CCB98F /* RegisterCardFormCoordinator.swift */; };
+		A56CCF52225A365E00CCB98F /* RegisterCardFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF50225A365E00CCB98F /* RegisterCardFormViewController.swift */; };
+		A56CCF53225A365E00CCB98F /* RegisterCardFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A56CCF51225A365E00CCB98F /* RegisterCardFormViewController.xib */; };
+		A56CCF55225A368A00CCB98F /* CustomNavBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF54225A368A00CCB98F /* CustomNavBarViewController.swift */; };
+		A56CCF57225A3E1500CCB98F /* RegisterCardFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF56225A3E1500CCB98F /* RegisterCardFormViewModel.swift */; };
+		A56CCF59225A3E2500CCB98F /* RegisterCardFormViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF58225A3E2500CCB98F /* RegisterCardFormViewModelType.swift */; };
+		A56CCF5B225A3ED500CCB98F /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF5A225A3ED500CCB98F /* CreditCard.swift */; };
+		A56CCF5D225A400900CCB98F /* CreditCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF5C225A400900CCB98F /* CreditCardService.swift */; };
+		A56CCF60225A426F00CCB98F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF5F225A426F00CCB98F /* CoreDataManager.swift */; };
+		A56CCF64225A464300CCB98F /* Cards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF62225A464300CCB98F /* Cards.xcdatamodeld */; };
+		A56CCF67225A4A5F00CCB98F /* DbCard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF65225A4A5F00CCB98F /* DbCard+CoreDataClass.swift */; };
+		A56CCF68225A4A5F00CCB98F /* DbCard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF66225A4A5F00CCB98F /* DbCard+CoreDataProperties.swift */; };
 		A5C0692E2255829F00897A6A /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5C0692D2255829F00897A6A /* ContactsViewController.xib */; };
 		A5C0693022559D5000897A6A /* ContactsSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */; };
 		A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C069352255B4C100897A6A /* ContactsViewModelType.swift */; };
@@ -78,6 +90,18 @@
 		A56CCF432259AF0E00CCB98F /* RegisterCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCardViewModel.swift; sourceTree = "<group>"; };
 		A56CCF452259AF3500CCB98F /* RegisterCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCardViewController.swift; sourceTree = "<group>"; };
 		A56CCF462259AF3500CCB98F /* RegisterCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCardViewController.xib; sourceTree = "<group>"; };
+		A56CCF4A225A360F00CCB98F /* RegisterCardFormCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCardFormCoordinator.swift; sourceTree = "<group>"; };
+		A56CCF50225A365E00CCB98F /* RegisterCardFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCardFormViewController.swift; sourceTree = "<group>"; };
+		A56CCF51225A365E00CCB98F /* RegisterCardFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCardFormViewController.xib; sourceTree = "<group>"; };
+		A56CCF54225A368A00CCB98F /* CustomNavBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarViewController.swift; sourceTree = "<group>"; };
+		A56CCF56225A3E1500CCB98F /* RegisterCardFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCardFormViewModel.swift; sourceTree = "<group>"; };
+		A56CCF58225A3E2500CCB98F /* RegisterCardFormViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCardFormViewModelType.swift; sourceTree = "<group>"; };
+		A56CCF5A225A3ED500CCB98F /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
+		A56CCF5C225A400900CCB98F /* CreditCardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardService.swift; sourceTree = "<group>"; };
+		A56CCF5F225A426F00CCB98F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A56CCF63225A464300CCB98F /* Cards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cards.xcdatamodel; sourceTree = "<group>"; };
+		A56CCF65225A4A5F00CCB98F /* DbCard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbCard+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A56CCF66225A4A5F00CCB98F /* DbCard+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbCard+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A5C0692D2255829F00897A6A /* ContactsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
 		A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchBar.swift; sourceTree = "<group>"; };
 		A5C069352255B4C100897A6A /* ContactsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModelType.swift; sourceTree = "<group>"; };
@@ -222,10 +246,75 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A56CCF49225A35F200CCB98F /* RegisterCardForm */ = {
+			isa = PBXGroup;
+			children = (
+				A56CCF4A225A360F00CCB98F /* RegisterCardFormCoordinator.swift */,
+				A56CCF4F225A364400CCB98F /* ViewControllers */,
+				A56CCF4E225A363F00CCB98F /* ViewModels */,
+				A56CCF4D225A363300CCB98F /* Models */,
+				A56CCF4C225A362C00CCB98F /* Views */,
+			);
+			path = RegisterCardForm;
+			sourceTree = "<group>";
+		};
+		A56CCF4C225A362C00CCB98F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A56CCF4D225A363300CCB98F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A56CCF5A225A3ED500CCB98F /* CreditCard.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A56CCF4E225A363F00CCB98F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A56CCF58225A3E2500CCB98F /* RegisterCardFormViewModelType.swift */,
+				A56CCF56225A3E1500CCB98F /* RegisterCardFormViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A56CCF4F225A364400CCB98F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A56CCF50225A365E00CCB98F /* RegisterCardFormViewController.swift */,
+				A56CCF51225A365E00CCB98F /* RegisterCardFormViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A56CCF5E225A40CF00CCB98F /* CreditCardServices */ = {
+			isa = PBXGroup;
+			children = (
+				A56CCF5C225A400900CCB98F /* CreditCardService.swift */,
+			);
+			path = CreditCardServices;
+			sourceTree = "<group>";
+		};
+		A56CCF61225A462800CCB98F /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				A56CCF65225A4A5F00CCB98F /* DbCard+CoreDataClass.swift */,
+				A56CCF66225A4A5F00CCB98F /* DbCard+CoreDataProperties.swift */,
+				A56CCF5F225A426F00CCB98F /* CoreDataManager.swift */,
+				A56CCF62225A464300CCB98F /* Cards.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		A5C069312255B2CC00897A6A /* Commons */ = {
 			isa = PBXGroup;
 			children = (
 				A5C069392255B6D000897A6A /* ViewState.swift */,
+				A56CCF54225A368A00CCB98F /* CustomNavBarViewController.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -283,6 +372,7 @@
 		A5C069452255CD2B00897A6A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A56CCF5E225A40CF00CCB98F /* CreditCardServices */,
 				A5C069462255CD7800897A6A /* ContactsService.swift */,
 			);
 			path = Services;
@@ -336,6 +426,7 @@
 				A5C5C85F225465FD003F3DCB /* AppCoordinator.swift */,
 				A5C5C861225467B3003F3DCB /* Contacts */,
 				A56CCF3A2259AD4800CCB98F /* RegisterCard */,
+				A56CCF49225A35F200CCB98F /* RegisterCardForm */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -429,6 +520,7 @@
 		A5FFCC882256E6AA00828338 /* Clients */ = {
 			isa = PBXGroup;
 			children = (
+				A56CCF61225A462800CCB98F /* CoreData */,
 				A5C069432255BAA300897A6A /* ApiClient.swift */,
 				A5FFCC93225727A000828338 /* ImageDownloader.swift */,
 			);
@@ -552,6 +644,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5F6C11722566D500087A5DF /* ContactTableViewCell.xib in Resources */,
+				A56CCF53225A365E00CCB98F /* RegisterCardFormViewController.xib in Resources */,
 				A5C5C847225440C7003F3DCB /* LaunchScreen.storyboard in Resources */,
 				A5C0692E2255829F00897A6A /* ContactsViewController.xib in Resources */,
 				A56CCF482259AF3500CCB98F /* RegisterCardViewController.xib in Resources */,
@@ -576,31 +669,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5C5C864225467F7003F3DCB /* ContactsAppCoordinator.swift in Sources */,
+				A56CCF5D225A400900CCB98F /* CreditCardService.swift in Sources */,
 				A5C0693A2255B6D000897A6A /* ViewState.swift in Sources */,
+				A56CCF67225A4A5F00CCB98F /* DbCard+CoreDataClass.swift in Sources */,
+				A56CCF4B225A360F00CCB98F /* RegisterCardFormCoordinator.swift in Sources */,
 				A5C0693022559D5000897A6A /* ContactsSearchBar.swift in Sources */,
 				A5C5C86D22547628003F3DCB /* UIColorExtensions.swift in Sources */,
+				A56CCF60225A426F00CCB98F /* CoreDataManager.swift in Sources */,
 				A5C069472255CD7800897A6A /* ContactsService.swift in Sources */,
 				A5FFCC872256E5A700828338 /* ApiRequest.swift in Sources */,
 				A5F6C11622566D500087A5DF /* ContactTableViewCell.swift in Sources */,
 				A5FFCC852256E57000828338 /* Result.swift in Sources */,
 				A5C069492255D73A00897A6A /* ContactsErrorView.swift in Sources */,
 				A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */,
+				A56CCF52225A365E00CCB98F /* RegisterCardFormViewController.swift in Sources */,
+				A56CCF55225A368A00CCB98F /* CustomNavBarViewController.swift in Sources */,
 				A5FFCC94225727A000828338 /* ImageDownloader.swift in Sources */,
+				A56CCF5B225A3ED500CCB98F /* CreditCard.swift in Sources */,
 				A56CCF442259AF0E00CCB98F /* RegisterCardViewModel.swift in Sources */,
 				A5C0693C2255B6F700897A6A /* Contact.swift in Sources */,
 				A5C069442255BAA300897A6A /* ApiClient.swift in Sources */,
 				A5FFCC8B2256E6E200828338 /* ContactsRequest.swift in Sources */,
 				A5FFCC832256E55900828338 /* ApiResponse.swift in Sources */,
 				A56CCF422259AEED00CCB98F /* RegisterCardViewModelType.swift in Sources */,
+				A56CCF64225A464300CCB98F /* Cards.xcdatamodeld in Sources */,
 				A5C0693F2255B73400897A6A /* ContactViewDataType.swift in Sources */,
 				A5FFCC812256E50900828338 /* ApiErrors.swift in Sources */,
 				A5FFCC8E2256E6FF00828338 /* ApiContact.swift in Sources */,
+				A56CCF68225A4A5F00CCB98F /* DbCard+CoreDataProperties.swift in Sources */,
 				A5F6C110225661FF0087A5DF /* ContactsSearchBarTableHeaderView.swift in Sources */,
 				A5C5C860225465FD003F3DCB /* AppCoordinator.swift in Sources */,
+				A56CCF57225A3E1500CCB98F /* RegisterCardFormViewModel.swift in Sources */,
 				A56CCF472259AF3500CCB98F /* RegisterCardViewController.swift in Sources */,
 				A5C5C83D225440C5003F3DCB /* AppDelegate.swift in Sources */,
 				A5C5C85E225465C4003F3DCB /* Coordinator.swift in Sources */,
 				A5C069412255B79A00897A6A /* ContactsViewModel.swift in Sources */,
+				A56CCF59225A3E2500CCB98F /* RegisterCardFormViewModelType.swift in Sources */,
 				A5C5C86822546A19003F3DCB /* ContactsViewController.swift in Sources */,
 				A56CCF3C2259AD6300CCB98F /* RegisterCardCoordinator.swift in Sources */,
 			);
@@ -869,6 +973,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A56CCF62225A464300CCB98F /* Cards.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A56CCF63225A464300CCB98F /* Cards.xcdatamodel */,
+			);
+			currentVersion = A56CCF63225A464300CCB98F /* Cards.xcdatamodel */;
+			path = Cards.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A5C5C831225440C5003F3DCB /* Project object */;
 }

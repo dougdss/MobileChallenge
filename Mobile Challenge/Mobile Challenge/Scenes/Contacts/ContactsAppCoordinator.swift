@@ -44,8 +44,7 @@ class ContactsAppCoordinator: Coordinator {
 extension ContactsAppCoordinator: ContactsViewModelCoordinatorDelegate {
    
     func didSelect(contact: Contact, from controller: UIViewController) {
-        print(contact)
-        //add coordinator and show register card or payment screen
+        removeAllChildCoordinators()
         let registerCardCoordinator = RegisterCardCoordinator(rootViewController: controller, contact: contact)
         addChildCoordinator(coordinator: registerCardCoordinator)
         registerCardCoordinator.start()

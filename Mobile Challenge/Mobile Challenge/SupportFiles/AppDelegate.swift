@@ -27,7 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func customizeAppearance() {
         UITextField.appearance(whenContainedInInstancesOf: [ContactsSearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
-        
     }
+//
+//    func startCoreData() {
+//        let coreDataManager = CoreDataManager(modelName: "Cards")
+//        print(coreDataManager.managedObjectContext ?? "")
+//    }
 }
 

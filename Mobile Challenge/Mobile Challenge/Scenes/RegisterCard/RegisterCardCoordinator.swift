@@ -20,9 +20,19 @@ class RegisterCardCoordinator: Coordinator {
     
     override func start() {
         let registerCardVC = RegisterCardViewController()
-//        registerCardVC.viewModel = viewmodel
+        let viewModel = RegisterCardViewModel(contact: selectedContact)
+        viewModel.coordinatorDelegate = self
+        registerCardVC.viewModel = viewModel
         rootViewController.navigationController?.pushViewController(registerCardVC, animated: true)
-//        rootViewController.present(registerCardVC, animated: true, completion: nil)
     }
     
+}
+
+extension RegisterCardCoordinator: RegisterCardViewModelCoordinatorDelegate {
+    
+    func didSelectRegister(withContact: Contact, from controller: UIViewController) {
+        let registerCardFormCoordinator = RegisterCardFormCoordinator(rootViewController: controller, contact: withContact)
+        addChildCoordinator(coordinator: registerCardFormCoordinator)
+        registerCardFormCoordinator.start()
+    }
 }

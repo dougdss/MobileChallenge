@@ -39,6 +39,9 @@
                     <state key="normal" title="Cadastrar cartão">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="didTapRegister:" destination="-1" eventType="touchUpInside" id="h1g-ce-GPu"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para fazer pagamentos para outras pessoas você precisa cadastrar um cartão de crédito pessoal." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuW-b7-MkR">
                     <rect key="frame" x="40" y="382" width="295" height="57.5"/>
