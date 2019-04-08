@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         customizeAppearance()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        appCoordinator = ContactsAppCoordinator(window: window)
+//        appCoordinator = ContactsAppCoordinator(window: window)
+        appCoordinator = AppCoordinator(window: window)
         appCoordinator.start()
         
         return true

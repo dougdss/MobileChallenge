@@ -10,4 +10,9 @@ import Foundation
 
 struct CreditCard {
     
+    var cardNumber: String
+    var cardHolderName: String
+    var dueDate: Date
+    var cardCVV: String
+    
 }
