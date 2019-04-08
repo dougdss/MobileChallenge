@@ -54,9 +54,10 @@ class ContactsViewController: UIViewController {
     }
     
     private func configBackgroundView() {
-        let errorView = ContactsErrorView()
+        let errorView = ContactsErrorView(frame: CGRect(x: 0, y: -100, width: tableView.frame.width, height: tableView.frame.height - 100))
         errorView.delegate = self
         tableView.backgroundView = errorView
+        tableView.backgroundView?.isHidden = true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

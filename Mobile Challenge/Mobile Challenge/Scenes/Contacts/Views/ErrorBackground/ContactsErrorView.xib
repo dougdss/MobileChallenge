@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactsErrorView" customModule="Mobile_Challenge" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="v4S-3K-sAP"/>
                 <outlet property="errorLabel" destination="oo0-b3-ke6" id="JIS-5w-l89"/>
                 <outlet property="tryAgainButton" destination="UWv-VY-FPZ" id="Zag-Vl-6mM"/>
             </connections>
@@ -37,7 +38,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="UWv-VY-FPZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="04C-8t-nPI"/>
                 <constraint firstItem="UWv-VY-FPZ" firstAttribute="top" secondItem="oo0-b3-ke6" secondAttribute="bottom" constant="8" id="FaQ-5S-2KZ"/>

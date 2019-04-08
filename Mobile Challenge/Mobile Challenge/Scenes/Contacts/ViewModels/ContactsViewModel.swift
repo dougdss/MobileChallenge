@@ -40,16 +40,19 @@ class ContactsViewModel {
     
     private func getContacts() {
         viewDelegate?.updateState(.loading)
-        service.getContacts { (result: Result<[Contact]>) in
-            self.viewDelegate?.updateState(.loaded)
-            switch result {
-            case .success(let contacts):
-                self.contacts = contacts
-            case .failure(let error):
-                self.viewDelegate?.showError(error: error)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            self.service.getContacts { (result: Result<[Contact]>) in
+                self.viewDelegate?.updateState(.loaded)
+                switch result {
+                case .success(let contacts):
+                    self.contacts = contacts
+                    self.viewDelegate?.updateScreen()
+                case .failure(let error):
+                    self.viewDelegate?.showError(error: error)
+                }
             }
-            self.viewDelegate?.updateScreen()
         }
+        
     }
     
     private func getFilteredContacts(searchText: String) {
