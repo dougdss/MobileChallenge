@@ -17,10 +17,13 @@ protocol RegisterCardFormViewModelType {
     var dueDate: Date { get set }
     var cvv: String { get set }
     
+    func saveCard(card: CreditCard, from controller: UIViewController)
+    func didGoBack()
 }
 
 protocol RegisterCardFormViewModelCoordinatorDelegate:class {
     func didSaveCreditCard(creditCard: CreditCard, from controller: UIViewController)
+    func didCallPop()
 }
 
 protocol RegisterCardFormViewModelViewDelegate: class {

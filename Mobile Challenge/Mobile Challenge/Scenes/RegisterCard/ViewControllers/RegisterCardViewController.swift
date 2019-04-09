@@ -25,6 +25,13 @@ class RegisterCardViewController: CustomNavBarViewController {
         viewModel.didTouchRegisterCard(from: self)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isMovingFromParent {
+            viewModel.didGoBack()
+        }
+    }
+    
 }
 
 extension RegisterCardViewController: RegisterCardViewModelViewDelegate {

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Douglas da Silva Santos. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class RegisterCardFormViewModel: RegisterCardFormViewModelType {
     
@@ -24,4 +24,11 @@ class RegisterCardFormViewModel: RegisterCardFormViewModelType {
         self.service = creditCardService
     }
     
+    func saveCard(card: CreditCard, from controller: UIViewController) {
+        coordinatorDelegate?.didSaveCreditCard(creditCard: card, from: controller)
+    }
+    
+    func didGoBack() {
+        coordinatorDelegate?.didCallPop()
+    }
 }

@@ -39,6 +39,10 @@ class ContactsAppCoordinator: Coordinator {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
+    
+    override func finish() {
+        removeAllChildCoordinators()
+    }
 }
 
 extension ContactsAppCoordinator: ContactsViewModelCoordinatorDelegate {
@@ -46,9 +50,19 @@ extension ContactsAppCoordinator: ContactsViewModelCoordinatorDelegate {
     func didSelect(contact: Contact, from controller: UIViewController) {
         removeAllChildCoordinators()
         let registerCardCoordinator = RegisterCardCoordinator(rootViewController: controller, contact: contact)
+        registerCardCoordinator.delegate = self
         addChildCoordinator(coordinator: registerCardCoordinator)
         registerCardCoordinator.start()
     }
     
+}
+
+extension ContactsAppCoordinator: RegisterCardCoordinatorDelegate {
+    func didFinish() {
+        removeAllChildCoordinators()
+    }
     
+    func didFinishAfterSave() {
+        removeAllChildCoordinators()
+    }
 }

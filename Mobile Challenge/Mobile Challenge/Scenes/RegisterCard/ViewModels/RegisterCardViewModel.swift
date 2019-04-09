@@ -24,4 +24,8 @@ class RegisterCardViewModel: RegisterCardViewModelType {
         coordinatorDelegate?.didSelectRegister(withContact: contact, from: controller)
     }
     
+    func didGoBack() {
+        coordinatorDelegate?.didCallPop()
+    }
+    
 }

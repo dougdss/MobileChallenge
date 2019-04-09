@@ -50,6 +50,9 @@
                                     <state key="normal" title="Salvar">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="didTapSaveCard:" destination="-1" eventType="touchUpInside" id="frI-Du-6wS"/>
+                                    </connections>
                                 </button>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P7j-i4-Bv1" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                     <rect key="frame" x="20" y="93.5" width="280" height="44"/>
