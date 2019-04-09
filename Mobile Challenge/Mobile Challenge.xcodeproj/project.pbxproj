@@ -32,6 +32,7 @@
 		A56CCF64225A464300CCB98F /* Cards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF62225A464300CCB98F /* Cards.xcdatamodeld */; };
 		A56CCF67225A4A5F00CCB98F /* DbCard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF65225A4A5F00CCB98F /* DbCard+CoreDataClass.swift */; };
 		A56CCF68225A4A5F00CCB98F /* DbCard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF66225A4A5F00CCB98F /* DbCard+CoreDataProperties.swift */; };
+		A599E79E225C596E004AA8A9 /* CreditCardFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599E79D225C596E004AA8A9 /* CreditCardFormatter.swift */; };
 		A5C0692E2255829F00897A6A /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5C0692D2255829F00897A6A /* ContactsViewController.xib */; };
 		A5C0693022559D5000897A6A /* ContactsSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */; };
 		A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C069352255B4C100897A6A /* ContactsViewModelType.swift */; };
@@ -109,6 +110,7 @@
 		A56CCF63225A464300CCB98F /* Cards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cards.xcdatamodel; sourceTree = "<group>"; };
 		A56CCF65225A4A5F00CCB98F /* DbCard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbCard+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A56CCF66225A4A5F00CCB98F /* DbCard+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbCard+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A599E79D225C596E004AA8A9 /* CreditCardFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardFormatter.swift; sourceTree = "<group>"; };
 		A5C0692D2255829F00897A6A /* ContactsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
 		A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchBar.swift; sourceTree = "<group>"; };
 		A5C069352255B4C100897A6A /* ContactsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModelType.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			children = (
 				A5C069392255B6D000897A6A /* ViewState.swift */,
 				A56CCF54225A368A00CCB98F /* CustomNavBarViewController.swift */,
+				A599E79D225C596E004AA8A9 /* CreditCardFormatter.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -809,6 +812,7 @@
 				A5C5C85E225465C4003F3DCB /* Coordinator.swift in Sources */,
 				A5C069412255B79A00897A6A /* ContactsViewModel.swift in Sources */,
 				A56CCF59225A3E2500CCB98F /* RegisterCardFormViewModelType.swift in Sources */,
+				A599E79E225C596E004AA8A9 /* CreditCardFormatter.swift in Sources */,
 				A5C5C86822546A19003F3DCB /* ContactsViewController.swift in Sources */,
 				A56CCF3C2259AD6300CCB98F /* RegisterCardCoordinator.swift in Sources */,
 			);

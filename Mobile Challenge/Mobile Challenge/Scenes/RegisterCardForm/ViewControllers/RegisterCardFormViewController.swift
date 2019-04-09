@@ -21,9 +21,11 @@ class RegisterCardFormViewController: CustomNavBarViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var cardNumberTextField: SkyFloatingLabelTextField!
-    @IBOutlet weak var cardHolderNameLabel: SkyFloatingLabelTextField!
-    @IBOutlet weak var cardDueDateLabel: SkyFloatingLabelTextField!
-
+    @IBOutlet weak var cardHolderNameTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var cardDueDateTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var cardCVVTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var saveButton: UIButton!
+    
     //control for saveButton
     @IBOutlet weak var saveButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var saveButtonTopConstraint: NSLayoutConstraint!
@@ -31,6 +33,7 @@ class RegisterCardFormViewController: CustomNavBarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTextFields()
+        configTapGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,13 +46,53 @@ class RegisterCardFormViewController: CustomNavBarViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    private func configTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(gesture:)))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func handleTap(gesture: UITapGestureRecognizer) {
+        currentSelectedTextField?.resignFirstResponder()
+    }
+    
     private func configureTextFields() {
         cardNumberTextField.titleFormatter = { _ in return "Número do cartão" }
-        cardHolderNameLabel.titleFormatter = { _ in return "Nome do titular" }
-        cardDueDateLabel.titleFormatter = { _ in return "Vencimento" }
+        cardHolderNameTextField.titleFormatter = { _ in return "Nome do titular" }
+        cardDueDateTextField.titleFormatter = { _ in return "Vencimento" }
+        cardCVVTextField.titleFormatter = { _ in return "CVV" }
         cardNumberTextField.delegate = self
-        cardHolderNameLabel.delegate = self
-        cardDueDateLabel.delegate = self
+        cardHolderNameTextField.delegate = self
+        cardDueDateTextField.delegate = self
+        cardCVVTextField.delegate = self
+        
+        cardNumberTextField.addTarget(self, action: #selector(formatCardNumber(_:)), for: .editingChanged)
+        cardDueDateTextField.addTarget(self, action: #selector(formatCardExpiryDate(_:)), for: .editingChanged)
+        cardCVVTextField.addTarget(self, action: #selector(cardCvvEditingChanged(_:)), for: .editingChanged)
+        cardHolderNameTextField.addTarget(self, action: #selector(cardHolderNameEditingChanged(_:)), for: .editingChanged)
+    }
+    
+    @objc func formatCardNumber(_ sender: Any) {
+        validateForm()
+        let formattedText = CreditCardFormatter.formatCreditCard(withText: cardNumberTextField.text ?? "")
+        if formattedText != cardNumberTextField.text {
+            cardNumberTextField.text = formattedText
+        }
+    }
+    
+    @objc func formatCardExpiryDate(_ sender: Any) {
+        validateForm()
+        let formattedText = CreditCardFormatter.formatCreditCardExpiryDate(withText: cardDueDateTextField.text ?? "")
+        if formattedText != cardDueDateTextField.text {
+            cardDueDateTextField.text = formattedText
+        }
+    }
+    
+    @objc func cardCvvEditingChanged(_ sender: Any) {
+        validateForm()
+    }
+    
+    @objc func cardHolderNameEditingChanged(_ sender: Any) {
+        validateForm()
     }
     
     private func registerForKeyboardNotifications() {
@@ -59,47 +102,44 @@ class RegisterCardFormViewController: CustomNavBarViewController {
     }
     
     @objc func handleKeyboardWillShow(notification: Notification) {
-//        print(notification.userInfo)
-//        print("keyboard framebeginuserinfokey: \(notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey])")
-        guard let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+        guard let endframe = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
             return
         }
         guard let textField = currentSelectedTextField else {
             return
         }
-        moveScrollViewOffset(forTextField: textField, keyboardFrame: frame)
+        moveScrollViewOffset(forTextField: textField, keyboardFrame: endframe)
         
     }
     
     @objc func handleKeyboardWillHide(notification: Notification) {
-//        print(notification.userInfo)
-//        print("keyboard framebeginuserinfokey: \(notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey])")
-//        guard let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
-//            return
-//        }
-        scrollView.setContentOffset(CGPoint(x: 0, y: -64), animated: true)
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         saveButtonTopConstraint.priority = .defaultLow
         saveButtonBottomConstraint.priority = .defaultHigh
     }
     
     private func moveScrollViewOffset(forTextField textField: SkyFloatingLabelTextField, keyboardFrame kframe: CGRect) {
-//        scrollView.setContentOffset(CGPoint(x: 0, y: kframe.origin.y), animated: true)
-        let diff = textField.frame.origin.y - kframe.origin.y
-        let absDiff = diff + navigationController!.navigationBar.frame.height + 20
-        if absDiff > 0 {
-            scrollView.setContentOffset(CGPoint(x: 0, y: abs(absDiff) + 80), animated: true)
+        if textField.frame.maxY < kframe.origin.y - 64 {
+            return
+        } else {
+            scrollView.setContentOffset(CGPoint(x: 0, y: textField.frame.maxY - kframe.height), animated: true)
             saveButtonTopConstraint.priority = .defaultHigh
+            saveButtonTopConstraint.constant = 20
             saveButtonBottomConstraint.priority = .defaultLow
         }
-//        } else {
-//            scrollView.setContentOffset(CGPoint(x: 0, y: textField.frame.origin.y), animated: true)
-//        }
+    }
+    
+    private func validateForm() {
+        var isValid = true
+
+        let holderName = cardHolderNameTextField.text ?? ""
+        isValid = cardNumberTextField.text?.count == 19 &&
+        cardDueDateTextField.text?.count == 5 &&
+        cardCVVTextField.text?.count == 3 &&
+        holderName.count >= 12
         
-//        if textField.frame.origin.y > kframe.origin.y {
-//            // move scrollOffset
-////            scrollView.contentOffset = CGPoint(x: 0, y: textField.frame.origin.y)
-//            scrollView.setContentOffset(CGPoint(x: 0, y: textField.frame.origin.y), animated: true)
-//        }
+        saveButton.isHidden = !isValid
+        
     }
     
 }
@@ -127,4 +167,26 @@ extension RegisterCardFormViewController: UITextFieldDelegate {
         return true
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        guard let textFieldText = textField.text,
+            let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+            return false
+        }
+        
+        let substringToReplace = textFieldText[rangeOfTextToReplace]
+        let count = textFieldText.count - substringToReplace.count + string.count
+        
+        let skyFloatingLabelTextField = (textField as! SkyFloatingLabelTextField)
+        if skyFloatingLabelTextField.isEqual(cardNumberTextField) {
+            return count <= 19
+        } else if skyFloatingLabelTextField.isEqual(cardDueDateTextField) {
+            return count <= 5
+        } else if skyFloatingLabelTextField.isEqual(cardCVVTextField) {
+            return count <= 3
+        } else {
+            return count <= 40 // for holder name
+        }
+    }
+
 }

@@ -19,15 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         customizeAppearance()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-//        appCoordinator = ContactsAppCoordinator(window: window)
-        appCoordinator = AppCoordinator(window: window)
+        appCoordinator = ContactsAppCoordinator(window: window)
+//        appCoordinator = AppCoordinator(window: window)
         appCoordinator.start()
         
         return true
     }
     
     func customizeAppearance() {
-        UITextField.appearance(whenContainedInInstancesOf: [ContactsSearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
+        UITextField.appearance(whenContainedInInstancesOf: [ContactsSearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)]
     }
 //
 //    func startCoreData() {

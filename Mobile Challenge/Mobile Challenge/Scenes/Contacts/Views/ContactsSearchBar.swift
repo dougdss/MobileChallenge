@@ -10,7 +10,7 @@ import UIKit
 
 class ContactsSearchBar: UISearchBar {
     
-    static let defaultContainerHeight: CGFloat = 64
+    static let defaultContainerHeight: CGFloat = 56
     
     var isActive: Bool = false {
         willSet {
@@ -30,7 +30,7 @@ class ContactsSearchBar: UISearchBar {
     
     private func config() {
         setSearchFieldBackgroundImage(UIImage(named: "searchBackground"), for: .normal)
-        setPositionAdjustment(UIOffset(horizontal: frame.width / 10, vertical: 0), for: UISearchBar.Icon.search)
+        setPositionAdjustment(UIOffset(horizontal: frame.width / 12, vertical: 0), for: UISearchBar.Icon.search)
         searchTextPositionAdjustment = UIOffset(horizontal: 8, vertical: 0)
         placeholder = "A quem você deseja pagar?"
         barTintColor = .picpaySearchBarBackgroundColor
@@ -53,9 +53,9 @@ class ContactsSearchBar: UISearchBar {
     private func setInactiveState() {
         layer.borderColor = UIColor.clear.cgColor
         layer.borderWidth = 0
-        placeholder = "A quem você gostaria de pagar?"
+        placeholder = "A quem você deseja de pagar?"
         setImage(nil, for: UISearchBar.Icon.search, state: UIControl.State.normal)
         setImage(nil, for: UISearchBar.Icon.clear, state: UIControl.State.normal)
-        setPositionAdjustment(UIOffset(horizontal: frame.width / 10, vertical: 0), for: UISearchBar.Icon.search)
+        setPositionAdjustment(UIOffset(horizontal: frame.width / 12, vertical: 0), for: UISearchBar.Icon.search)
     }
 }
