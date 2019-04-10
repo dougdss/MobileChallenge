@@ -18,7 +18,7 @@ extension DbCard {
 
     @NSManaged public var cardNumber: String?
     @NSManaged public var holderName: String?
-    @NSManaged public var dueDate: NSDate?
-    @NSManaged public var cvv: Int16
+    @NSManaged public var dueDate: Date?
+    @NSManaged public var cvv: String?
 
 }

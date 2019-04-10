@@ -19,7 +19,8 @@ class CustomNavBarViewController: UIViewController {
         view.backgroundColor = .picpayDefaultBlackBackgroundColor
         navigationController?.navigationBar.barTintColor = .picpayDefaultBlackBackgroundColor
         navigationController?.navigationBar.tintColor = .picpayDefaultGreenActionColor
-        navigationController?.navigationBar.backgroundColor = .picpayDefaultBlackBackgroundColor
+//        navigationController?.navigationBar.backgroundColor = .picpayDefaultBlackBackgroundColor
+        navigationController?.navigationBar.backgroundColor = .clear
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.barStyle = .blackOpaque

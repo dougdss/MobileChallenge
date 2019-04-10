@@ -25,10 +25,16 @@ class RegisterCardFormViewModel: RegisterCardFormViewModelType {
     }
     
     func saveCard(card: CreditCard, from controller: UIViewController) {
-        coordinatorDelegate?.didSaveCreditCard(creditCard: card, from: controller)
+        service.saveCreditCard(creditCard: card) { [unowned self] (success, error) in
+            if success {
+                self.coordinatorDelegate?.didSaveCreditCard(creditCard: card, from: controller)
+            } else {
+                self.viewDelegate?.showError(error: error)
+            }
+        }
     }
     
-    func didGoBack() {
-        coordinatorDelegate?.didCallPop()
+    func didTouchBackButton() {
+        coordinatorDelegate?.didPopFromNavigation()
     }
 }

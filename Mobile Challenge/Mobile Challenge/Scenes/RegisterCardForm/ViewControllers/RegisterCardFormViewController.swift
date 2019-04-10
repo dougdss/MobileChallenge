@@ -44,8 +44,9 @@ class RegisterCardFormViewController: CustomNavBarViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
+        clearTargets()
         if isMovingFromParent {
-            viewModel.didGoBack()
+            viewModel.didTouchBackButton()
         }
     }
     
@@ -72,6 +73,13 @@ class RegisterCardFormViewController: CustomNavBarViewController {
         cardDueDateTextField.addTarget(self, action: #selector(formatCardExpiryDate(_:)), for: .editingChanged)
         cardCVVTextField.addTarget(self, action: #selector(cardCvvEditingChanged(_:)), for: .editingChanged)
         cardHolderNameTextField.addTarget(self, action: #selector(cardHolderNameEditingChanged(_:)), for: .editingChanged)
+    }
+    
+    private func clearTargets() {
+        cardNumberTextField.removeTarget(self, action: #selector(formatCardNumber(_:)), for: .editingChanged)
+        cardDueDateTextField.removeTarget(self, action: #selector(formatCardExpiryDate(_:)), for: .editingChanged)
+        cardCVVTextField.removeTarget(self, action: #selector(cardCvvEditingChanged(_:)), for: .editingChanged)
+        cardHolderNameTextField.removeTarget(self, action: #selector(cardHolderNameEditingChanged(_:)), for: .editingChanged)
     }
     
     @objc func formatCardNumber(_ sender: Any) {
@@ -160,13 +168,18 @@ class RegisterCardFormViewController: CustomNavBarViewController {
         let card = CreditCard.init(cardNumber: viewModel.cardNumber, cardHolderName: viewModel.holderName, dueDate: viewModel.dueDate, cardCVV: viewModel.cvv)
         viewModel.saveCard(card: card, from: self)
     }
-    
-    
-    
+
 }
 
 extension RegisterCardFormViewController: RegisterCardFormViewModelViewDelegate {
-    
+    func showError(error: Error?) {
+        print(error?.localizedDescription ?? "")
+        let alert = UIAlertController(title: "Salvar Cartão", message: "Não foi possível salvar seu cartão, verifique e tente novamente", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 extension RegisterCardFormViewController: UITextFieldDelegate {

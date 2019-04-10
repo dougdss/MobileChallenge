@@ -15,13 +15,12 @@ protocol RegisterCardViewModelType {
     var contact: Contact { get set }
     
     func didTouchRegisterCard(from controller: UIViewController)
-    func didGoBack()
+    func didTouchBackButton()
 }
 
 protocol RegisterCardViewModelCoordinatorDelegate: class {
-    
     func didSelectRegister(withContact: Contact, from controller: UIViewController)
-    func didCallPop()
+    func didPopFromNavigation()
 }
 
 protocol RegisterCardViewModelViewDelegate: class {

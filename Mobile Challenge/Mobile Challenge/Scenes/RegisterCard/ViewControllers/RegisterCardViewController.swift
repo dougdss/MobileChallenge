@@ -28,7 +28,7 @@ class RegisterCardViewController: CustomNavBarViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if isMovingFromParent {
-            viewModel.didGoBack()
+            viewModel.didTouchBackButton()
         }
     }
     

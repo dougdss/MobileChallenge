@@ -8,16 +8,15 @@
 
 import UIKit
 
-protocol RegisterCardFormCoordinatorDelegate  {
-    func didPopFromForm()
-    func didFinishAfterSave()
+protocol RegisterCardFormCoordinatorDelegate:class  {
+    func didFinish(from: RegisterCardFormCoordinator)
 }
 
 class RegisterCardFormCoordinator: Coordinator {
     
     var rootViewController: UIViewController
     var selectedContact: Contact
-    var delegate: RegisterCardFormCoordinatorDelegate?
+    weak var delegate: RegisterCardFormCoordinatorDelegate?
     
     init(rootViewController: UIViewController, contact: Contact) {
         self.rootViewController = rootViewController
@@ -38,6 +37,10 @@ class RegisterCardFormCoordinator: Coordinator {
         rootViewController.navigationController?.pushViewController(registerCardFormVC, animated: true)
     }
     
+    override func finish() {
+        delegate?.didFinish(from: self)
+    }
+    
 }
 
 extension RegisterCardFormCoordinator: RegisterCardFormViewModelCoordinatorDelegate {
@@ -46,12 +49,11 @@ extension RegisterCardFormCoordinator: RegisterCardFormViewModelCoordinatorDeleg
         guard let rootController = rootViewController.navigationController?.viewControllers.first else {
             return
         }
+        
         rootViewController.navigationController?.setViewControllers([rootController], animated: true)
-        delegate?.didFinishAfterSave()
     }
     
-    func didCallPop() {
-        delegate?.didPopFromForm()
+    func didPopFromNavigation() {
+        finish()
     }
-    
 }

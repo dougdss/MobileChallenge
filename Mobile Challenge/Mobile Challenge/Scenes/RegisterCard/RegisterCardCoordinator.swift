@@ -8,16 +8,15 @@
 
 import UIKit
 
-protocol RegisterCardCoordinatorDelegate {
-    func didFinish()
-    func didFinishAfterSave()
+protocol RegisterCardCoordinatorDelegate:class {
+    func didFinish(from: RegisterCardCoordinator)
 }
 
 class RegisterCardCoordinator: Coordinator {
     
     var rootViewController: UIViewController
     var selectedContact: Contact
-    var delegate: RegisterCardCoordinatorDelegate?
+    weak var delegate: RegisterCardCoordinatorDelegate?
     
     init(rootViewController: UIViewController, contact: Contact) {
         self.rootViewController = rootViewController
@@ -33,7 +32,7 @@ class RegisterCardCoordinator: Coordinator {
     }
     
     override func finish() {
-        removeAllChildCoordinators()
+        delegate?.didFinish(from: self)
     }
     
 }
@@ -46,19 +45,16 @@ extension RegisterCardCoordinator: RegisterCardViewModelCoordinatorDelegate {
         addChildCoordinator(coordinator: registerCardFormCoordinator)
         registerCardFormCoordinator.start()
     }
-
-    func didCallPop() {
-        delegate?.didFinish()
+    
+    func didPopFromNavigation() {
+        finish()
     }
     
 }
 
 extension RegisterCardCoordinator: RegisterCardFormCoordinatorDelegate {
-    func didPopFromForm() {
-        removeAllChildCoordinators()
-    }
     
-    func didFinishAfterSave() {
-        delegate?.didFinishAfterSave()
+    func didFinish(from: RegisterCardFormCoordinator) {
+        removeChildCoordinator(coordinator: from)
     }
 }

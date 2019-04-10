@@ -18,14 +18,14 @@ protocol RegisterCardFormViewModelType {
     var cvv: String { get set }
     
     func saveCard(card: CreditCard, from controller: UIViewController)
-    func didGoBack()
+    func didTouchBackButton()
 }
 
 protocol RegisterCardFormViewModelCoordinatorDelegate:class {
     func didSaveCreditCard(creditCard: CreditCard, from controller: UIViewController)
-    func didCallPop()
+    func didPopFromNavigation()
 }
 
 protocol RegisterCardFormViewModelViewDelegate: class {
-    
+    func showError(error : Error?)
 }

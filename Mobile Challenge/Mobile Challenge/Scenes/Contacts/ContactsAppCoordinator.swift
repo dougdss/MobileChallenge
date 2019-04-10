@@ -22,6 +22,8 @@ class ContactsAppCoordinator: Coordinator {
         return api
     }()
     
+    let creditCardService: CreditCardService
+    
     lazy var contactsViewModel: ContactsViewModel = {
         let contactsService = ContactsApiService(apiService: apiService)
         let viewModel = ContactsViewModel(service: contactsService)
@@ -29,8 +31,9 @@ class ContactsAppCoordinator: Coordinator {
         return viewModel
     }()
     
-    init(window: UIWindow?) {
+    init(window: UIWindow?, creditCardService: CreditCardService) {
         self.window = window
+        self.creditCardService = creditCardService
     }
     
     override func start() {
@@ -48,21 +51,34 @@ class ContactsAppCoordinator: Coordinator {
 extension ContactsAppCoordinator: ContactsViewModelCoordinatorDelegate {
    
     func didSelect(contact: Contact, from controller: UIViewController) {
-        removeAllChildCoordinators()
-        let registerCardCoordinator = RegisterCardCoordinator(rootViewController: controller, contact: contact)
-        registerCardCoordinator.delegate = self
-        addChildCoordinator(coordinator: registerCardCoordinator)
-        registerCardCoordinator.start()
+
+        creditCardService.loadSavedCard(completion: { (card, error) in
+            if card == nil {
+                // registerCard
+                let registerCardCoordinator = RegisterCardCoordinator(rootViewController: controller, contact: contact)
+                registerCardCoordinator.delegate = self
+                addChildCoordinator(coordinator: registerCardCoordinator)
+                registerCardCoordinator.start()
+            } else {
+                // payment
+                let paymentCoordinator = PaymentCoordinator(rootViewController: controller, apiService: apiService, contact: contact, creditCard: card!)
+                paymentCoordinator.delegate = self
+                addChildCoordinator(coordinator: paymentCoordinator)
+                paymentCoordinator.start()
+            }
+        })
     }
     
 }
 
 extension ContactsAppCoordinator: RegisterCardCoordinatorDelegate {
-    func didFinish() {
-        removeAllChildCoordinators()
+    func didFinish(from: RegisterCardCoordinator) {
+        removeChildCoordinator(coordinator: from)
     }
-    
-    func didFinishAfterSave() {
-        removeAllChildCoordinators()
+}
+
+extension ContactsAppCoordinator: PaymentCoordinatorDelegate {
+    func didFinish(from: PaymentCoordinator) {
+        removeChildCoordinator(coordinator: from)
     }
 }

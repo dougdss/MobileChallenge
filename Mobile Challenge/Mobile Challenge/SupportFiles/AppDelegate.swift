@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,8 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         customizeAppearance()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        appCoordinator = ContactsAppCoordinator(window: window)
-//        appCoordinator = AppCoordinator(window: window)
+        appCoordinator = ContactsAppCoordinator(window: window, creditCardService: CreditCardCoreDataService(dataManager: CoreDataManager(modelName: "Cards")))
         appCoordinator.start()
         
         return true
@@ -29,10 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func customizeAppearance() {
         UITextField.appearance(whenContainedInInstancesOf: [ContactsSearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)]
     }
-//
-//    func startCoreData() {
-//        let coreDataManager = CoreDataManager(modelName: "Cards")
-//        print(coreDataManager.managedObjectContext ?? "")
-//    }
+    
 }
 

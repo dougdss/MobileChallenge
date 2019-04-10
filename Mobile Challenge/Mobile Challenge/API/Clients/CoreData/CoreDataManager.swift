@@ -23,10 +23,6 @@ final class CoreDataManager {
     
     private func initializeStack() {
         
-        // context
-        managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        managedObjectContext?.persistentStoreCoordinator = self.persistentStoreCoordinator
-        
         //model
         guard let modelURL = Bundle.main.url(forResource: self.modelName, withExtension: "momd") else {
             fatalError("Cannot find data model")
@@ -37,6 +33,11 @@ final class CoreDataManager {
             
             //persisntent coordinator
             initializePersistentStore(withModel: managedModel)
+            
+            // context
+            managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+            managedObjectContext?.persistentStoreCoordinator = self.persistentStoreCoordinator
+            
         } else {
             fatalError("Cannot load data model")
         }
