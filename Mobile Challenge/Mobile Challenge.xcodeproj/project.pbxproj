@@ -551,10 +551,10 @@
 			isa = PBXGroup;
 			children = (
 				A5C8D15F225D6739005DB576 /* PaymentCoordinator.swift */,
+				A5C8D161225D673D005DB576 /* ViewControllers */,
 				A5C8D164225D674F005DB576 /* ViewModels */,
 				A5C8D163225D6749005DB576 /* Models */,
 				A5C8D162225D6745005DB576 /* Views */,
-				A5C8D161225D673D005DB576 /* ViewControllers */,
 			);
 			path = Payment;
 			sourceTree = "<group>";

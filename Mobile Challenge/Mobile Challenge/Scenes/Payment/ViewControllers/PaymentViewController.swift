@@ -94,6 +94,14 @@ extension PaymentViewController: PaymentViewModelViewDelegate {
         setAttributedText(withText: text)
     }
     
+    func showError(error: Error?) {
+        let alert = UIAlertController(title: "Pagamento", message: "Não foi possível efetuar esse pagamento, verifique e tente novamente", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension PaymentViewController: UITextFieldDelegate {

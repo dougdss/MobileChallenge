@@ -21,11 +21,12 @@ protocol PaymentViewModelType {
 }
 
 protocol PaymentViewModelCoordinatorDelegate:class {
-    func didPay(value: Double, forContact: Contact)
+    func didConfirm(transaction: ConfirmedTransaction, forContact contact: Contact)
 }
 
 protocol PaymentViewModelViewDelegate:class {
     func updateState(state: ViewState)
     func updatePaymentValueWith(formattedText text: String, andRawText: String)
     func validateForm(isValid: Bool)
+    func showError(error: Error?)
 }

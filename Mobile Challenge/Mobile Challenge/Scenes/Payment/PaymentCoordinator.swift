@@ -50,7 +50,8 @@ class PaymentCoordinator: Coordinator {
 
 extension PaymentCoordinator: PaymentViewModelCoordinatorDelegate {
     
-    func didPay(value: Double, forContact: Contact) {
-        
+    func didConfirm(transaction: ConfirmedTransaction, forContact contact: Contact) {
+        // show receipt
     }
+    
 }

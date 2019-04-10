@@ -49,25 +49,23 @@ class PaymentViewModel: PaymentViewModelType {
     
     func pay() {
         if let cvv = Int(card.cardCVV) {
-            
             let transactionInfo = TransactionInfo(cardNumber: card.cardNumber.replacingOccurrences(of: " ", with: ""),
                                                   cvv: cvv,
                                                   value: paymentValue.doubleValue,
                                                   expiryDate: dateFormatter.string(from: card.dueDate),
                                                   destinationUserId: contact.id)
-            
-            service.confirmTransaction(transaction: transactionInfo) { (result: Result<ConfirmedTransaction>) in
+            viewDelegate?.updateState(state: .loading)
+            service.confirmTransaction(transaction: transactionInfo) { [unowned self] (result: Result<ConfirmedTransaction>) in
+                self.viewDelegate?.updateState(state: .loaded)
                 switch result {
                 case .success(let value):
-                    print(value)
+                    self.coordinatorDelegate?.didConfirm(transaction: value, forContact: self.contact)
                 case .failure(let error):
-                    print(error)
-                    break
+                    self.viewDelegate?.showError(error: error)
                 }
             }
         }
-        
-
+    
     }
     
     var paymentFormatter: NumberFormatter {
