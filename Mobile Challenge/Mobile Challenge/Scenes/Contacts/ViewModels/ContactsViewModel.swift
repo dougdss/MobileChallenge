@@ -41,6 +41,16 @@ class ContactsViewModel {
     private func getContacts() {
         viewDelegate?.updateState(.loading)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+           //mock
+//            guard let contacts = ContactsMock().getMockedContacts() else {
+//                self.viewDelegate?.updateState(.loaded)
+//                self.viewDelegate?.showError(error: ParseError.invalidData)
+//                return
+//            }
+//            self.contacts = contacts
+//            self.viewDelegate?.updateState(.loaded)
+//            self.viewDelegate?.updateScreen()
+            
             self.service.getContacts { (result: Result<[Contact]>) in
                 self.viewDelegate?.updateState(.loaded)
                 switch result {

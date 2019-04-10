@@ -6,7 +6,7 @@
 //  Copyright © 2019 Douglas da Silva Santos. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class PaymentViewModel: PaymentViewModelType {
     
@@ -47,7 +47,7 @@ class PaymentViewModel: PaymentViewModelType {
         }
     }
     
-    func pay() {
+    func pay(fromController controller: UIViewController) {
         if let cvv = Int(card.cardCVV) {
             let transactionInfo = TransactionInfo(cardNumber: card.cardNumber.replacingOccurrences(of: " ", with: ""),
                                                   cvv: cvv,
@@ -59,14 +59,16 @@ class PaymentViewModel: PaymentViewModelType {
                 self.viewDelegate?.updateState(state: .loaded)
                 switch result {
                 case .success(let value):
-                    self.coordinatorDelegate?.didConfirm(transaction: value, forContact: self.contact)
+                    self.coordinatorDelegate?.didConfirm(transaction: value, forContact: self.contact, fromController: controller)
                 case .failure(let error):
+//                    let confirm = ConfirmedTransaction(transaction: ConfirmedTransaction.Transaction.init(success: true, status: "Aprovado", id: 1, timestamp: 123123123, value: 100.0, destinationUser: self.contact))
+//                    self.coordinatorDelegate?.didConfirm(transaction: confirm, forContact: self.contact, fromController: controller)
                     self.viewDelegate?.showError(error: error)
                 }
             }
         }
-    
     }
+
     
     var paymentFormatter: NumberFormatter {
         let formatter = NumberFormatter()

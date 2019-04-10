@@ -68,7 +68,7 @@ class PaymentViewController: CustomNavBarViewController {
     }
     
     @IBAction func didTapPay(_ sender: Any) {
-        viewModel.pay()
+        viewModel.pay(fromController: self)
     }
 }
 

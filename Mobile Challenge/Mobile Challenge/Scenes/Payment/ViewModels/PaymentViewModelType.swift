@@ -6,7 +6,7 @@
 //  Copyright © 2019 Douglas da Silva Santos. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol PaymentViewModelType {
     
@@ -17,11 +17,11 @@ protocol PaymentViewModelType {
     var paymentValue: NSNumber { get set }
     var paymentFormatter: NumberFormatter { get }
     var dateFormatter: DateFormatter { get }
-    func pay()
+    func pay(fromController controller: UIViewController)
 }
 
 protocol PaymentViewModelCoordinatorDelegate:class {
-    func didConfirm(transaction: ConfirmedTransaction, forContact contact: Contact)
+    func didConfirm(transaction: ConfirmedTransaction, forContact contact: Contact, fromController controller: UIViewController)
 }
 
 protocol PaymentViewModelViewDelegate:class {

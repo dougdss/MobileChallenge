@@ -81,4 +81,18 @@ extension ContactsAppCoordinator: PaymentCoordinatorDelegate {
     func didFinish(from: PaymentCoordinator) {
         removeChildCoordinator(coordinator: from)
     }
+    
+    func didConfirmPayment(forContact contact: Contact, paymentInfo payment: ConfirmedTransaction, fromController controller: UIViewController) {
+        let receiptCoordinator = ReceiptsCoordinator(rootViewController: controller)
+        receiptCoordinator.delegate = self
+        addChildCoordinator(coordinator: receiptCoordinator)
+        receiptCoordinator.start()
+        
+    }
+}
+
+extension ContactsAppCoordinator: ReceiptsCoordinatorDelegate {
+    func didFinish(fromCoordinator coordinator: ReceiptsCoordinator) {
+        removeChildCoordinator(coordinator: coordinator)
+    }
 }

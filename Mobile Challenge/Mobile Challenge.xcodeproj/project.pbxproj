@@ -32,7 +32,11 @@
 		A56CCF64225A464300CCB98F /* Cards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF62225A464300CCB98F /* Cards.xcdatamodeld */; };
 		A56CCF67225A4A5F00CCB98F /* DbCard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF65225A4A5F00CCB98F /* DbCard+CoreDataClass.swift */; };
 		A56CCF68225A4A5F00CCB98F /* DbCard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF66225A4A5F00CCB98F /* DbCard+CoreDataProperties.swift */; };
+		A589EFD0225E5D8C00D05115 /* ContactsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A589EFCF225E5D8C00D05115 /* ContactsMock.swift */; };
+		A589EFD2225E5DC900D05115 /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = A589EFD1225E5DC900D05115 /* contacts.json */; };
 		A599E79E225C596E004AA8A9 /* CreditCardFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599E79D225C596E004AA8A9 /* CreditCardFormatter.swift */; };
+		A5AE1E90225E7D4A00490124 /* ReceiptsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AE1E8F225E7D4A00490124 /* ReceiptsViewModelType.swift */; };
+		A5AE1E92225E7D5400490124 /* ReceiptsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AE1E91225E7D5400490124 /* ReceiptsViewModel.swift */; };
 		A5C0692E2255829F00897A6A /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5C0692D2255829F00897A6A /* ContactsViewController.xib */; };
 		A5C0693022559D5000897A6A /* ContactsSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */; };
 		A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C069352255B4C100897A6A /* ContactsViewModelType.swift */; };
@@ -124,7 +128,11 @@
 		A56CCF63225A464300CCB98F /* Cards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cards.xcdatamodel; sourceTree = "<group>"; };
 		A56CCF65225A4A5F00CCB98F /* DbCard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbCard+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A56CCF66225A4A5F00CCB98F /* DbCard+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbCard+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A589EFCF225E5D8C00D05115 /* ContactsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsMock.swift; sourceTree = "<group>"; };
+		A589EFD1225E5DC900D05115 /* contacts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
 		A599E79D225C596E004AA8A9 /* CreditCardFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardFormatter.swift; sourceTree = "<group>"; };
+		A5AE1E8F225E7D4A00490124 /* ReceiptsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsViewModelType.swift; sourceTree = "<group>"; };
+		A5AE1E91225E7D5400490124 /* ReceiptsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsViewModel.swift; sourceTree = "<group>"; };
 		A5C0692D2255829F00897A6A /* ContactsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
 		A5C0692F22559D5000897A6A /* ContactsSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchBar.swift; sourceTree = "<group>"; };
 		A5C069352255B4C100897A6A /* ContactsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModelType.swift; sourceTree = "<group>"; };
@@ -370,6 +378,15 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		A589EFCE225E5D8000D05115 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				A589EFCF225E5D8C00D05115 /* ContactsMock.swift */,
+				A589EFD1225E5DC900D05115 /* contacts.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		A5C069312255B2CC00897A6A /* Commons */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,6 +530,7 @@
 		A5C5C862225467C8003F3DCB /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				A589EFCE225E5D8000D05115 /* Mock */,
 				A5C5C845225440C7003F3DCB /* LaunchScreen.storyboard */,
 				A5C5C83C225440C5003F3DCB /* AppDelegate.swift */,
 				A5C5C843225440C7003F3DCB /* Assets.xcassets */,
@@ -617,6 +635,8 @@
 		A5C8D175225DA74A005DB576 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				A5AE1E8F225E7D4A00490124 /* ReceiptsViewModelType.swift */,
+				A5AE1E91225E7D5400490124 /* ReceiptsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -812,6 +832,7 @@
 				A5C8D172225D6BC7005DB576 /* PaymentViewController.xib in Resources */,
 				A5C0694B2255D75D00897A6A /* ContactsErrorView.xib in Resources */,
 				A5F6C10E22564A370087A5DF /* ContactsSearchBarTableHeaderView.xib in Resources */,
+				A589EFD2225E5DC900D05115 /* contacts.json in Resources */,
 				A5C5C844225440C7003F3DCB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -908,6 +929,7 @@
 				A5C8D16A225D69FD005DB576 /* ConfirmedTransaction.swift in Sources */,
 				A5C5C86D22547628003F3DCB /* UIColorExtensions.swift in Sources */,
 				A56CCF60225A426F00CCB98F /* CoreDataManager.swift in Sources */,
+				A589EFD0225E5D8C00D05115 /* ContactsMock.swift in Sources */,
 				A5C069472255CD7800897A6A /* ContactsService.swift in Sources */,
 				A5FFCC872256E5A700828338 /* ApiRequest.swift in Sources */,
 				A5C8D183225DC372005DB576 /* ApiConfirmedTransaction.swift in Sources */,
@@ -917,6 +939,7 @@
 				A5C069362255B4C100897A6A /* ContactsViewModelType.swift in Sources */,
 				A56CCF52225A365E00CCB98F /* RegisterCardFormViewController.swift in Sources */,
 				A56CCF55225A368A00CCB98F /* CustomNavBarViewController.swift in Sources */,
+				A5AE1E92225E7D5400490124 /* ReceiptsViewModel.swift in Sources */,
 				A5C8D16E225D6BAB005DB576 /* PaymentViewModel.swift in Sources */,
 				A5FFCC94225727A000828338 /* ImageDownloader.swift in Sources */,
 				A56CCF5B225A3ED500CCB98F /* CreditCard.swift in Sources */,
@@ -927,6 +950,7 @@
 				A5C069442255BAA300897A6A /* ApiClient.swift in Sources */,
 				A5C8D160225D6739005DB576 /* PaymentCoordinator.swift in Sources */,
 				A5FFCC8B2256E6E200828338 /* ContactsRequest.swift in Sources */,
+				A5AE1E90225E7D4A00490124 /* ReceiptsViewModelType.swift in Sources */,
 				A5C8D17F225DBB04005DB576 /* PaymentApiRequest.swift in Sources */,
 				A5FFCC832256E55900828338 /* ApiResponse.swift in Sources */,
 				A56CCF422259AEED00CCB98F /* RegisterCardViewModelType.swift in Sources */,
