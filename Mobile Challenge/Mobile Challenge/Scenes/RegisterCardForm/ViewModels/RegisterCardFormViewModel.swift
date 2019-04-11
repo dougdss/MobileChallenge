@@ -37,7 +37,9 @@ class RegisterCardFormViewModel: RegisterCardFormViewModelType {
     func saveCard(card: CreditCard, from controller: UIViewController) {
         service.saveCreditCard(creditCard: card) { [unowned self] (success, error) in
             if success {
-                self.coordinatorDelegate?.didSaveCreditCard(creditCard: card, from: controller)
+                self.viewDelegate?.showSaveCardSuccess {
+                    self.coordinatorDelegate?.didSaveCreditCard(creditCard: card, from: controller)
+                }
             } else {
                 self.viewDelegate?.showError(error: error)
             }
@@ -47,12 +49,56 @@ class RegisterCardFormViewModel: RegisterCardFormViewModelType {
     func updateCard(card: CreditCard, from controller: UIViewController) {
         service.updateSavedCard(withCard: card) { [unowned self] (success, error) in
             if success {
-                self.coordinatorDelegate?.didUpdateCreditCard(creditCard: card, from: controller)
+                self.viewDelegate?.showSaveCardSuccess {
+                    self.coordinatorDelegate?.didUpdateCreditCard(creditCard: card, from: controller)
+                }
             } else {
                 self.viewDelegate?.showError(error: error)
             }
         }
     }
+    
+    func formatCardNumber(cardNumber number: String) {
+        
+        let formattedText = CreditCardFormatter.formatCreditCard(withText: number)
+        
+        cardNumber = formattedText
+        viewDelegate?.updateCardNumber(cardNumber: formattedText)
+        validateForm()
+    }
+    
+    func formatCardExpiryDate(cardExpiryDate date: String) {
+        
+        let formattedText = CreditCardFormatter.formatCreditCardExpiryDate(withText: date)
+        dueDate = CardExpiryDateFormatter.formatter.date(from: formattedText) ?? Date()
+        viewDelegate?.updateCardExpiryDate(expiryDate: formattedText)
+        validateForm()
+        
+    }
+    
+    func formatCardCvv(cardCVV cvv: String) {
+        self.cvv = cvv
+        validateForm()
+        
+    }
+    
+    func formatCardHolderName(cardHolderName name: String) {
+        validateForm()
+        self.holderName = name
+    }
+    
+    func validateForm() {
+        var isValid = true
+        
+        
+        isValid = cardNumber.count == 19 &&
+            CardExpiryDateFormatter.formatter.string(from: dueDate).count == 5 &&
+            cvv.count == 3 &&
+            holderName.count >= 12
+        
+        viewDelegate?.isFormValid(valid: isValid)
+    }
+    
     
     func didTouchBackButton() {
         coordinatorDelegate?.didPopFromNavigation()

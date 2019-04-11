@@ -34,11 +34,9 @@ class RegisterCardFormViewController: CustomNavBarViewController {
         super.viewDidLoad()
         configureTextFields()
         configTapGesture()
+        
         if viewModel.isUpdatingCard {
-            cardNumberTextField.text = viewModel.cardNumber
-            cardDueDateTextField.text = CardExpiryDateFormatter.formatter.string(from: viewModel.dueDate)
-            cardCVVTextField.text = viewModel.cvv
-            cardHolderNameTextField.text = viewModel.holderName
+            updateCardInformation()
         }
     }
     
@@ -66,6 +64,7 @@ class RegisterCardFormViewController: CustomNavBarViewController {
     }
     
     private func configureTextFields() {
+        saveButton.layer.cornerRadius = saveButton.frame.height / 2
         cardNumberTextField.titleFormatter = { _ in return "Número do cartão" }
         cardHolderNameTextField.titleFormatter = { _ in return "Nome do titular" }
         cardDueDateTextField.titleFormatter = { _ in return "Vencimento" }
@@ -89,27 +88,19 @@ class RegisterCardFormViewController: CustomNavBarViewController {
     }
     
     @objc func formatCardNumber(_ sender: Any) {
-        validateForm()
-        let formattedText = CreditCardFormatter.formatCreditCard(withText: cardNumberTextField.text ?? "")
-        if formattedText != cardNumberTextField.text {
-            cardNumberTextField.text = formattedText
-        }
+        viewModel.formatCardNumber(cardNumber: cardNumberTextField.text ?? "")
     }
     
     @objc func formatCardExpiryDate(_ sender: Any) {
-        validateForm()
-        let formattedText = CreditCardFormatter.formatCreditCardExpiryDate(withText: cardDueDateTextField.text ?? "")
-        if formattedText != cardDueDateTextField.text {
-            cardDueDateTextField.text = formattedText
-        }
+        viewModel.formatCardExpiryDate(cardExpiryDate: cardDueDateTextField.text ?? "")
     }
     
     @objc func cardCvvEditingChanged(_ sender: Any) {
-        validateForm()
+        viewModel.formatCardCvv(cardCVV: cardCVVTextField.text ?? "")
     }
     
     @objc func cardHolderNameEditingChanged(_ sender: Any) {
-        validateForm()
+        viewModel.formatCardHolderName(cardHolderName: cardHolderNameTextField.text ?? "")
     }
     
     private func registerForKeyboardNotifications() {
@@ -146,23 +137,6 @@ class RegisterCardFormViewController: CustomNavBarViewController {
         }
     }
     
-    private func validateForm() {
-        var isValid = true
-
-        let holderName = cardHolderNameTextField.text ?? ""
-        isValid = cardNumberTextField.text?.count == 19 &&
-        cardDueDateTextField.text?.count == 5 &&
-        cardCVVTextField.text?.count == 3 &&
-        holderName.count >= 12
-        
-        viewModel.cardNumber = cardNumberTextField.text ?? ""
-        viewModel.holderName = cardHolderNameTextField.text ?? ""
-        viewModel.dueDate = CardExpiryDateFormatter.formatter.date(from: cardDueDateTextField.text ?? "") ?? Date()
-        viewModel.cvv = cardCVVTextField.text ?? ""
-        
-        saveButton.isHidden = !isValid
-    }
-    
     @IBAction func didTapSaveCard(_ sender: Any) {
         let card = CreditCard.init(cardNumber: viewModel.cardNumber, cardHolderName: viewModel.holderName, dueDate: viewModel.dueDate, cardCVV: viewModel.cvv)
         if viewModel.isUpdatingCard {
@@ -176,6 +150,18 @@ class RegisterCardFormViewController: CustomNavBarViewController {
 }
 
 extension RegisterCardFormViewController: RegisterCardFormViewModelViewDelegate {
+    
+    func showSaveCardSuccess(completion: @escaping () -> Void) {
+        let alert = UIAlertController(title: "Salvar Cartão", message: "Sucesso", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+            completion()
+        })
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     func showError(error: Error?) {
         print(error?.localizedDescription ?? "")
         let alert = UIAlertController(title: "Salvar Cartão", message: "Não foi possível salvar seu cartão, verifique e tente novamente", preferredStyle: .alert)
@@ -183,6 +169,26 @@ extension RegisterCardFormViewController: RegisterCardFormViewModelViewDelegate 
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func updateCardInformation() {
+        cardNumberTextField.text = viewModel.cardNumber
+        cardDueDateTextField.text = CardExpiryDateFormatter.formatter.string(from: viewModel.dueDate)
+        cardCVVTextField.text = viewModel.cvv
+        cardHolderNameTextField.text = viewModel.holderName
+        cardHolderNameEditingChanged(cardHolderNameTextField)
+    }
+    
+    func updateCardNumber(cardNumber: String) {
+        cardNumberTextField.text = cardNumber
+    }
+    
+    func updateCardExpiryDate(expiryDate: String) {
+        cardDueDateTextField.text = expiryDate
+    }
+    
+    func isFormValid(valid: Bool) {
+        saveButton.isHidden = !valid
     }
 }
 

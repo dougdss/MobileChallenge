@@ -77,9 +77,9 @@
                         <constraint firstItem="sKL-qp-mB4" firstAttribute="leading" secondItem="YMK-38-RlM" secondAttribute="trailing" constant="4" id="peZ-qI-8FF"/>
                     </constraints>
                 </view>
-                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeN-v6-PDB">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeN-v6-PDB">
                     <rect key="frame" x="12" y="255.5" width="296" height="48"/>
-                    <color key="backgroundColor" red="0.35686274509999999" green="0.76470588240000004" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.5607843137254902" green="0.5725490196078431" blue="0.61568627450980395" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="AmI-0y-gM0"/>
                     </constraints>

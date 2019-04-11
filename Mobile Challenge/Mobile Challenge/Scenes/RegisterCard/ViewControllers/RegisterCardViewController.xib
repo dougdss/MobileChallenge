@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterCardViewController" customModule="Mobile_Challenge" customModuleProvider="target">
             <connections>
+                <outlet property="registerButton" destination="7dm-tu-fY2" id="tEe-Py-VyK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

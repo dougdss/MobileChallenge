@@ -21,6 +21,10 @@ protocol RegisterCardFormViewModelType {
     var cardToUpdate: CreditCard? { get set }
     func saveCard(card: CreditCard, from controller: UIViewController)
     func updateCard(card: CreditCard, from controller: UIViewController)
+    func formatCardNumber(cardNumber number: String)
+    func formatCardExpiryDate(cardExpiryDate date: String)
+    func formatCardHolderName(cardHolderName name: String)
+    func formatCardCvv(cardCVV cvv: String)
     func didTouchBackButton()
 }
 
@@ -33,4 +37,8 @@ protocol RegisterCardFormViewModelCoordinatorDelegate:class {
 
 protocol RegisterCardFormViewModelViewDelegate: class {
     func showError(error : Error?)
+    func showSaveCardSuccess(completion: @escaping () -> Void)
+    func updateCardNumber(cardNumber: String)
+    func updateCardExpiryDate(expiryDate: String)
+    func isFormValid(valid: Bool)
 }
