@@ -24,7 +24,7 @@ class ContactsAppCoordinator: Coordinator {
     
     let creditCardService: CreditCardService
     
-    lazy var contactsViewModel: ContactsViewModel = {
+    lazy var contactsViewModel: ContactsViewModelType = {
         let contactsService = ContactsApiService(apiService: apiService)
         let viewModel = ContactsViewModel(service: contactsService)
         viewModel.coordinatorDelegate = self

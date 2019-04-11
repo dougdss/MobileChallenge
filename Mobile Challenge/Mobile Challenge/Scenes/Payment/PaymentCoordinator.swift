@@ -22,7 +22,7 @@ class PaymentCoordinator: Coordinator {
     
     weak var delegate: PaymentCoordinatorDelegate?
     
-    var viewModel: PaymentViewModel {
+    var viewModel: PaymentViewModelType {
         let service = PaymentApiService(apiService: apiService)
         let viewModel = PaymentViewModel(service: service, card: creditCard, contact: contact)
         viewModel.coordinatorDelegate = self

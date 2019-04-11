@@ -25,9 +25,7 @@ class RegisterCardFormCoordinator: Coordinator {
         self.selectedContact = contact
     }
     
-    lazy var registerCardFormViewModel: RegisterCardFormViewModel = {
-//        let manager = CoreDataManager(modelName: "Cards")
-//        let service = CreditCardCoreDataService(dataManager: manager)
+    lazy var registerCardFormViewModel: RegisterCardFormViewModelType = {
         let viewModel = RegisterCardFormViewModel(creditCardService: CreditCardCoreDataService.defaultService)
         viewModel.cardToUpdate = cardToUpdate
         viewModel.isUpdatingCard = cardToUpdate != nil

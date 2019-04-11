@@ -40,7 +40,7 @@ class ContactsViewModel {
     
     private func getContacts() {
         viewDelegate?.updateState(.loading)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
            //mock
 //            guard let contacts = ContactsMock().getMockedContacts() else {
 //                self.viewDelegate?.updateState(.loaded)
@@ -50,7 +50,7 @@ class ContactsViewModel {
 //            self.contacts = contacts
 //            self.viewDelegate?.updateState(.loaded)
 //            self.viewDelegate?.updateScreen()
-            
+//        }
             self.service.getContacts { (result: Result<[Contact]>) in
                 self.viewDelegate?.updateState(.loaded)
                 switch result {
@@ -61,7 +61,7 @@ class ContactsViewModel {
                     self.viewDelegate?.showError(error: error)
                 }
             }
-        }
+        
         
     }
     
