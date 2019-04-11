@@ -11,7 +11,7 @@ import UIKit
 class ContactTableViewCell: UITableViewCell {
 
     static let identifier: String = "ContactTableViewCell"
-    static let estimatedRowHeight: CGFloat = 80
+    static let estimatedRowHeight: CGFloat = 76
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
