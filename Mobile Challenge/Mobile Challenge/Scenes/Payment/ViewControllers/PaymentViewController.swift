@@ -62,6 +62,7 @@ class PaymentViewController: CustomNavBarViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         hiddenTextField.removeTarget(self, action: #selector(formatPaymentValue(_:)), for: .editingChanged)
+        hiddenTextField.resignFirstResponder()
     }
     
     @objc func formatPaymentValue(_ sender: Any) {
@@ -87,7 +88,7 @@ class PaymentViewController: CustomNavBarViewController {
     }
     
     @IBAction func editCardButtonTapped(_ sender: Any) {
-        
+        viewModel.editCard(fromController: self)
     }
 }
 
@@ -114,11 +115,20 @@ extension PaymentViewController: PaymentViewModelViewDelegate {
     }
     
     func showError(error: Error?) {
-        let alert = UIAlertController(title: "Pagamento", message: "Não foi possível efetuar esse pagamento, verifique e tente novamente", preferredStyle: .alert)
+        var errorMessage: String? = nil
+        if let transactionError = error as? TransactionError {
+            errorMessage = transactionError.errorDescription
+        }
+        
+        let alert = UIAlertController(title: "Pagamento", message: errorMessage ?? "Não foi possível efetuar esse pagamento, verifique e tente novamente", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func updateViews() {
+        configViews()
     }
     
 }

@@ -15,7 +15,7 @@ class PaymentViewModel: PaymentViewModelType {
     weak var coordinatorDelegate: PaymentViewModelCoordinatorDelegate?
     
     let service: PaymentService
-    let card: CreditCard
+    var card: CreditCard
     let contact: Contact
     
     init(service: PaymentService, card: CreditCard, contact: Contact) {
@@ -59,12 +59,20 @@ class PaymentViewModel: PaymentViewModelType {
                 self.viewDelegate?.updateState(state: .loaded)
                 switch result {
                 case .success(let value):
-                    self.coordinatorDelegate?.didConfirm(transaction: value, forContact: self.contact, withCard: self.card, fromController: controller)
+                    if value.transaction.success && value.transaction.status != "Recusada"{
+                        self.coordinatorDelegate?.didConfirm(transaction: value, forContact: self.contact, withCard: self.card, fromController: controller)
+                    } else {
+                        self.viewDelegate?.showError(error: TransactionError.rejected)
+                    }
                 case .failure(let error):
                     self.viewDelegate?.showError(error: error)
                 }
             }
         }
+    }
+    
+    func editCard(fromController controller: UIViewController) {
+        coordinatorDelegate?.didTryToEditCard(card: card, fromController: controller)
     }
 
     var paymentDestinationUsername: String {
@@ -72,7 +80,7 @@ class PaymentViewModel: PaymentViewModelType {
     }
     
     var paymentCardName: String {
-        let indexes = card.cardNumber.startIndex..<card.cardNumber.index(card.cardNumber.startIndex, offsetBy: 4)
+        let indexes = card.cardNumber.index(card.cardNumber.endIndex, offsetBy: -4)..<card.cardNumber.endIndex
         let cardNumber = String(card.cardNumber[indexes])
         return "Cartão final " + cardNumber
     }

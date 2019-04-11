@@ -15,6 +15,16 @@ class RegisterCardFormViewModel: RegisterCardFormViewModelType {
     var dueDate: Date = Date()
     var cvv: String = ""
  
+    var isUpdatingCard: Bool = false
+    var cardToUpdate: CreditCard? = nil {
+        didSet{
+            cardNumber = cardToUpdate?.cardNumber ?? ""
+            holderName = cardToUpdate?.cardHolderName ?? ""
+            dueDate = cardToUpdate?.dueDate ?? Date()
+            cvv = cardToUpdate?.cardCVV ?? ""
+        }
+    }
+    
     weak var viewDelegate: RegisterCardFormViewModelViewDelegate?
     weak var coordinatorDelegate: RegisterCardFormViewModelCoordinatorDelegate?
     
@@ -28,6 +38,16 @@ class RegisterCardFormViewModel: RegisterCardFormViewModelType {
         service.saveCreditCard(creditCard: card) { [unowned self] (success, error) in
             if success {
                 self.coordinatorDelegate?.didSaveCreditCard(creditCard: card, from: controller)
+            } else {
+                self.viewDelegate?.showError(error: error)
+            }
+        }
+    }
+    
+    func updateCard(card: CreditCard, from controller: UIViewController) {
+        service.updateSavedCard(withCard: card) { [unowned self] (success, error) in
+            if success {
+                self.coordinatorDelegate?.didUpdateCreditCard(creditCard: card, from: controller)
             } else {
                 self.viewDelegate?.showError(error: error)
             }

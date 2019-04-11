@@ -34,6 +34,12 @@ class RegisterCardFormViewController: CustomNavBarViewController {
         super.viewDidLoad()
         configureTextFields()
         configTapGesture()
+        if viewModel.isUpdatingCard {
+            cardNumberTextField.text = viewModel.cardNumber
+            cardDueDateTextField.text = CardExpiryDateFormatter.formatter.string(from: viewModel.dueDate)
+            cardCVVTextField.text = viewModel.cvv
+            cardHolderNameTextField.text = viewModel.holderName
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,22 +157,20 @@ class RegisterCardFormViewController: CustomNavBarViewController {
         
         viewModel.cardNumber = cardNumberTextField.text ?? ""
         viewModel.holderName = cardHolderNameTextField.text ?? ""
-        viewModel.dueDate = dateFormatter().date(from: cardDueDateTextField.text ?? "") ?? Date()
+        viewModel.dueDate = CardExpiryDateFormatter.formatter.date(from: cardDueDateTextField.text ?? "") ?? Date()
         viewModel.cvv = cardCVVTextField.text ?? ""
         
         saveButton.isHidden = !isValid
     }
     
-    private func dateFormatter() -> DateFormatter {
-        let form = DateFormatter()
-        form.dateFormat = "MM/yy"
-        form.locale = Locale(identifier: "pt-BR")
-        return form
-    }
-    
     @IBAction func didTapSaveCard(_ sender: Any) {
         let card = CreditCard.init(cardNumber: viewModel.cardNumber, cardHolderName: viewModel.holderName, dueDate: viewModel.dueDate, cardCVV: viewModel.cvv)
-        viewModel.saveCard(card: card, from: self)
+        if viewModel.isUpdatingCard {
+            viewModel.updateCard(card: card, from: self)
+        } else {
+            viewModel.saveCard(card: card, from: self)
+        }
+        
     }
 
 }

@@ -42,7 +42,7 @@ class ReceiptsViewModel: ReceiptsViewModelType {
     }
     
     var cardName: String {
-        let indexes = card.cardNumber.startIndex..<card.cardNumber.index(card.cardNumber.startIndex, offsetBy: 4)
+        let indexes = card.cardNumber.index(card.cardNumber.endIndex, offsetBy: -4)..<card.cardNumber.endIndex
         let cardNumber = String(card.cardNumber[indexes])
         return "Cartão final " + cardNumber
     }

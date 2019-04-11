@@ -57,4 +57,9 @@ extension RegisterCardCoordinator: RegisterCardFormCoordinatorDelegate {
     func didFinish(from: RegisterCardFormCoordinator) {
         removeChildCoordinator(coordinator: from)
     }
+    
+    func didUpdateCard(creditCard newCard: CreditCard, fromController controller: UIViewController) {
+        
+    }
+    
 }

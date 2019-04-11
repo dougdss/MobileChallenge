@@ -12,14 +12,16 @@ import CoreData
 protocol CreditCardService {
     func saveCreditCard(creditCard: CreditCard, completion: @escaping (_ success: Bool, _ error: Error?) -> Void)
     func loadSavedCard(completion: (_ creditCard: CreditCard?, _ error: Error?) -> Void)
+    func updateSavedCard(withCard card: CreditCard, completion: @escaping (_ success: Bool, _ error: Error?) -> Void)
 }
 
 class CreditCardCoreDataService: CreditCardService {
     
+    static let defaultService = CreditCardCoreDataService()
     let dataManager: CoreDataManager
     
-    init(dataManager: CoreDataManager) {
-        self.dataManager = dataManager
+    private init() {
+        self.dataManager = CoreDataManager(modelName: "Cards")
     }
     
     func saveCreditCard(creditCard: CreditCard, completion: @escaping (Bool, Error?) -> Void) {
@@ -67,6 +69,34 @@ class CreditCardCoreDataService: CreditCardService {
         } catch let err {
             completion(nil, err)
         }
+    }
+    
+    func updateSavedCard(withCard card: CreditCard, completion: @escaping (Bool, Error?) -> Void) {
+        do {
+            let error = NSError(domain: "mobilechallenge.coredata", code: 98, userInfo: [NSLocalizedDescriptionKey: "could not load saved card or no card has been saved yet."])
+            
+            let result = try dataManager.managedObjectContext?.fetch(DbCard.fetchRequest())
+            guard  result != nil, let cards = result as? [DbCard] else {
+                completion(false, error)
+                return
+            }
+            
+            if let dbCard = cards.first {
+                dbCard.cardNumber = card.cardNumber
+                dbCard.cvv = card.cardCVV
+                dbCard.dueDate = card.dueDate
+                dbCard.holderName = card.cardHolderName
+                
+                try dataManager.managedObjectContext?.save()
+                completion(true, nil)
+                return
+            }
+            
+            completion(false, error)
+        } catch let err {
+            completion(false, err)
+        }
+
     }
     
 }

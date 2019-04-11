@@ -10,6 +10,7 @@ import UIKit
 
 protocol RegisterCardFormCoordinatorDelegate:class  {
     func didFinish(from: RegisterCardFormCoordinator)
+    func didUpdateCard(creditCard newCard:CreditCard, fromController controller: UIViewController)
 }
 
 class RegisterCardFormCoordinator: Coordinator {
@@ -17,6 +18,7 @@ class RegisterCardFormCoordinator: Coordinator {
     var rootViewController: UIViewController
     var selectedContact: Contact
     weak var delegate: RegisterCardFormCoordinatorDelegate?
+    var cardToUpdate: CreditCard?
     
     init(rootViewController: UIViewController, contact: Contact) {
         self.rootViewController = rootViewController
@@ -24,9 +26,11 @@ class RegisterCardFormCoordinator: Coordinator {
     }
     
     lazy var registerCardFormViewModel: RegisterCardFormViewModel = {
-        let manager = CoreDataManager(modelName: "Cards")
-        let service = CreditCardCoreDataService(dataManager: manager)
-        let viewModel = RegisterCardFormViewModel(creditCardService: service)
+//        let manager = CoreDataManager(modelName: "Cards")
+//        let service = CreditCardCoreDataService(dataManager: manager)
+        let viewModel = RegisterCardFormViewModel(creditCardService: CreditCardCoreDataService.defaultService)
+        viewModel.cardToUpdate = cardToUpdate
+        viewModel.isUpdatingCard = cardToUpdate != nil
         viewModel.coordinatorDelegate = self
         return viewModel
     }()
@@ -51,6 +55,11 @@ extension RegisterCardFormCoordinator: RegisterCardFormViewModelCoordinatorDeleg
         }
         
         rootViewController.navigationController?.setViewControllers([rootController], animated: true)
+    }
+    
+    func didUpdateCreditCard(creditCard: CreditCard, from controller: UIViewController) {
+        rootViewController.navigationController?.popViewController(animated: true)
+        delegate?.didUpdateCard(creditCard: creditCard, fromController: controller)
     }
     
     func didPopFromNavigation() {

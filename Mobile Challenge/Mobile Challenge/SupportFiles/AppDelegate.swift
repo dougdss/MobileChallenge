@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         customizeAppearance()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        appCoordinator = ContactsAppCoordinator(window: window, creditCardService: CreditCardCoreDataService(dataManager: CoreDataManager(modelName: "Cards")))
+        appCoordinator = ContactsAppCoordinator(window: window, creditCardService: CreditCardCoreDataService.defaultService)
         appCoordinator.start()
         
         return true
