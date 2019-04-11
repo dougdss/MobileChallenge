@@ -38,21 +38,34 @@ class ContactsViewModel {
     
     // networking
     
-    func getContacts() {
+    private func getContacts() {
         viewDelegate?.updateState(.loading)
-        service.getContacts { (result: Result<[Contact]>) in
-            self.viewDelegate?.updateState(.loaded)
-            switch result {
-            case .success(let contacts):
-                self.contacts = contacts
-            case .failure(let error):
-                self.viewDelegate?.showError(error: error)
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+           //mock
+//            guard let contacts = ContactsMock().getMockedContacts() else {
+//                self.viewDelegate?.updateState(.loaded)
+//                self.viewDelegate?.showError(error: ParseError.invalidData)
+//                return
+//            }
+//            self.contacts = contacts
+//            self.viewDelegate?.updateState(.loaded)
+//            self.viewDelegate?.updateScreen()
+//        }
+            self.service.getContacts { (result: Result<[Contact]>) in
+                self.viewDelegate?.updateState(.loaded)
+                switch result {
+                case .success(let contacts):
+                    self.contacts = contacts
+                    self.viewDelegate?.updateScreen()
+                case .failure(let error):
+                    self.viewDelegate?.showError(error: error)
+                }
             }
-            self.viewDelegate?.updateScreen()
-        }
+        
+        
     }
     
-    func getFilteredContacts(searchText: String) {
+    private func getFilteredContacts(searchText: String) {
         
         //Simple Filter for contacts
         let filter = contacts.filter { (contact: Contact) -> Bool in

@@ -12,7 +12,7 @@ class AppCoordinator: Coordinator {
     
     var window: UIWindow?
     var rootViewController: UINavigationController {
-        return UINavigationController()
+        return UINavigationController(rootViewController: RegisterCardFormViewController())
     }
     
     let apiService: ApiService = {

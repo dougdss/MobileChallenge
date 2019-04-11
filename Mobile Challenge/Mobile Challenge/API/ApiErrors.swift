@@ -20,15 +20,6 @@ enum ParseError: Error, LocalizedError {
             return NSLocalizedString("Could not parse the response", comment: "ParseError")
         }
     }
-    
-//    var localizedDescription: String {
-//        switch self {
-//        case .invalidData:
-//            return "The data used for the parse was invalid"
-//        case .parse:
-//            return "Could not parse the response"
-//        }
-//    }
 }
 
 struct ApiParseError: Error {
@@ -61,4 +52,16 @@ struct NetworkError: Error {
         return error?.localizedDescription ?? "unknow network error"
     }
     
+}
+
+enum TransactionError: Error {
+    
+    case rejected
+    
+    var errorDescription: String? {
+        switch self {
+        case .rejected:
+            return NSLocalizedString("Transação Recusada, Verifique os dados.", comment: "TransactionError")
+        }
+    }
 }

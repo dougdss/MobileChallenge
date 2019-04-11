@@ -14,8 +14,9 @@ protocol ContactsErrorViewDelegate: class {
 
 class ContactsErrorView: UIView {
  
-    weak var delegate: ContactsErrorViewDelegate?
+    @IBOutlet var contentView: UIView!
     
+    weak var delegate: ContactsErrorViewDelegate?
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var tryAgainButton: UIButton!
     
@@ -23,5 +24,20 @@ class ContactsErrorView: UIView {
         delegate?.didTapTryAgainButton(erroView: self)
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        Bundle.main.loadNibNamed("ContactsErrorView", owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+    }
 }

@@ -33,6 +33,10 @@ class Coordinator {
             print("The coordinator passed for the function is not a child coordinator")
         }
     }
+    
+    func removeAllChildCoordinators() {
+        childCoordinators.removeAll()
+    }
 }
 
 extension Coordinator: Equatable {
