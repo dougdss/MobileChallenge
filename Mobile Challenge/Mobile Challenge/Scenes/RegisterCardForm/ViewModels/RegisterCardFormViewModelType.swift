@@ -37,6 +37,7 @@ protocol RegisterCardFormViewModelCoordinatorDelegate:class {
 
 protocol RegisterCardFormViewModelViewDelegate: class {
     func showError(error : Error?)
+    func showSaveCardSuccess(completion: @escaping () -> Void)
     func updateCardNumber(cardNumber: String)
     func updateCardExpiryDate(expiryDate: String)
     func isFormValid(valid: Bool)

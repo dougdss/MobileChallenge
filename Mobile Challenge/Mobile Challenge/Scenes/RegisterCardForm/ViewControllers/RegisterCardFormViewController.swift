@@ -150,6 +150,18 @@ class RegisterCardFormViewController: CustomNavBarViewController {
 }
 
 extension RegisterCardFormViewController: RegisterCardFormViewModelViewDelegate {
+    
+    func showSaveCardSuccess(completion: @escaping () -> Void) {
+        let alert = UIAlertController(title: "Salvar Cartão", message: "Sucesso", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+            completion()
+        })
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     func showError(error: Error?) {
         print(error?.localizedDescription ?? "")
         let alert = UIAlertController(title: "Salvar Cartão", message: "Não foi possível salvar seu cartão, verifique e tente novamente", preferredStyle: .alert)

@@ -37,7 +37,9 @@ class RegisterCardFormViewModel: RegisterCardFormViewModelType {
     func saveCard(card: CreditCard, from controller: UIViewController) {
         service.saveCreditCard(creditCard: card) { [unowned self] (success, error) in
             if success {
-                self.coordinatorDelegate?.didSaveCreditCard(creditCard: card, from: controller)
+                self.viewDelegate?.showSaveCardSuccess {
+                    self.coordinatorDelegate?.didSaveCreditCard(creditCard: card, from: controller)
+                }
             } else {
                 self.viewDelegate?.showError(error: error)
             }
@@ -47,7 +49,9 @@ class RegisterCardFormViewModel: RegisterCardFormViewModelType {
     func updateCard(card: CreditCard, from controller: UIViewController) {
         service.updateSavedCard(withCard: card) { [unowned self] (success, error) in
             if success {
-                self.coordinatorDelegate?.didUpdateCreditCard(creditCard: card, from: controller)
+                self.viewDelegate?.showSaveCardSuccess {
+                    self.coordinatorDelegate?.didUpdateCreditCard(creditCard: card, from: controller)
+                }
             } else {
                 self.viewDelegate?.showError(error: error)
             }
