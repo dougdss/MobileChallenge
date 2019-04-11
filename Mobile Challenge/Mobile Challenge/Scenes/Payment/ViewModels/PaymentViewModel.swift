@@ -9,7 +9,7 @@
 import UIKit
 
 class PaymentViewModel: PaymentViewModelType {
-    
+  
     weak var viewDelegate: PaymentViewModelViewDelegate?
     
     weak var coordinatorDelegate: PaymentViewModelCoordinatorDelegate?
@@ -27,7 +27,7 @@ class PaymentViewModel: PaymentViewModelType {
     var paymentValue: NSNumber = NSNumber(value: 0)
     
     func formatPaymentValue(textValue text: String) {
-        guard let numberValue = paymentFormatter.number(from: text) else {
+        guard let numberValue = PaymentFormatter.formatter.number(from: text) else {
             viewDelegate?.updatePaymentValueWith(formattedText: "0,00", andRawText: "")
             viewDelegate?.validateForm(isValid: paymentValue.doubleValue >= 10.0)
             return
@@ -41,7 +41,7 @@ class PaymentViewModel: PaymentViewModelType {
             return
         }
 
-        if let str = paymentFormatter.string(from: NSNumber(value: paymentValue.doubleValue)) {
+        if let str = PaymentFormatter.formatter.string(from: NSNumber(value: paymentValue.doubleValue)) {
             viewDelegate?.updatePaymentValueWith(formattedText: str, andRawText: text)
             viewDelegate?.validateForm(isValid: paymentValue.doubleValue  >= 10.0)
         }
@@ -52,41 +52,36 @@ class PaymentViewModel: PaymentViewModelType {
             let transactionInfo = TransactionInfo(cardNumber: card.cardNumber.replacingOccurrences(of: " ", with: ""),
                                                   cvv: cvv,
                                                   value: paymentValue.doubleValue,
-                                                  expiryDate: dateFormatter.string(from: card.dueDate),
+                                                  expiryDate: CardExpiryDateFormatter.formatter.string(from: card.dueDate),
                                                   destinationUserId: contact.id)
             viewDelegate?.updateState(state: .loading)
             service.confirmTransaction(transaction: transactionInfo) { [unowned self] (result: Result<ConfirmedTransaction>) in
                 self.viewDelegate?.updateState(state: .loaded)
                 switch result {
                 case .success(let value):
-                    self.coordinatorDelegate?.didConfirm(transaction: value, forContact: self.contact, fromController: controller)
+                    self.coordinatorDelegate?.didConfirm(transaction: value, forContact: self.contact, withCard: self.card, fromController: controller)
                 case .failure(let error):
-//                    let confirm = ConfirmedTransaction(transaction: ConfirmedTransaction.Transaction.init(success: true, status: "Aprovado", id: 1, timestamp: 123123123, value: 100.0, destinationUser: self.contact))
-//                    self.coordinatorDelegate?.didConfirm(transaction: confirm, forContact: self.contact, fromController: controller)
                     self.viewDelegate?.showError(error: error)
                 }
             }
         }
     }
 
-    
-    var paymentFormatter: NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 2
-        formatter.minimumIntegerDigits = 1
-        formatter.numberStyle = .decimal
-        formatter.groupingSeparator = "."
-        formatter.decimalSeparator = ","
-        formatter.locale = Locale(identifier: "pt-BR")
-        return formatter
+    var paymentDestinationUsername: String {
+        return contact.username
     }
     
-    var dateFormatter: DateFormatter {
-        let form = DateFormatter()
-        form.dateFormat = "MM/yy"
-        form.locale = Locale(identifier: "pt-BR")
-        return form
+    var paymentCardName: String {
+        let indexes = card.cardNumber.startIndex..<card.cardNumber.index(card.cardNumber.startIndex, offsetBy: 4)
+        let cardNumber = String(card.cardNumber[indexes])
+        return "Cartão final " + cardNumber
     }
     
+    func getUserImage(completion: @escaping (UIImage?) -> Void) {
+        ImageDownloader(urlSession: URLSession.shared).downloadImage(from: contact.imageUrl) { (image, error) in
+            //ignore error
+            completion(image)
+        }
+    }
+        
 }

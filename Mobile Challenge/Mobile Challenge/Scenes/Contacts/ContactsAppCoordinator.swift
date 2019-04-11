@@ -71,26 +71,30 @@ extension ContactsAppCoordinator: ContactsViewModelCoordinatorDelegate {
     
 }
 
+// Register Card
 extension ContactsAppCoordinator: RegisterCardCoordinatorDelegate {
     func didFinish(from: RegisterCardCoordinator) {
         removeChildCoordinator(coordinator: from)
     }
 }
 
+// Payment
 extension ContactsAppCoordinator: PaymentCoordinatorDelegate {
+    
     func didFinish(from: PaymentCoordinator) {
         removeChildCoordinator(coordinator: from)
     }
     
-    func didConfirmPayment(forContact contact: Contact, paymentInfo payment: ConfirmedTransaction, fromController controller: UIViewController) {
-        let receiptCoordinator = ReceiptsCoordinator(rootViewController: controller)
+    func didConfirmPayment(forContact contact: Contact, paymentInfo payment: ConfirmedTransaction, card: CreditCard, fromController controller: UIViewController) {
+        let receiptCoordinator = ReceiptsCoordinator(rootViewController: controller, paymentConfirmation: payment, card: card)
         receiptCoordinator.delegate = self
         addChildCoordinator(coordinator: receiptCoordinator)
         receiptCoordinator.start()
-        
     }
+    
 }
 
+// Receipt
 extension ContactsAppCoordinator: ReceiptsCoordinatorDelegate {
     func didFinish(fromCoordinator coordinator: ReceiptsCoordinator) {
         removeChildCoordinator(coordinator: coordinator)

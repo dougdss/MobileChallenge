@@ -11,7 +11,14 @@ import UIKit
 protocol ReceiptsViewModelType {
     
     var viewDelegate: ReceiptsViewModelViewDelegate? { get set }
+    var contactUsername: String { get }
+    var trasactionDate: String { get }
+    var trasactionId: String { get }
+    var cardName: String { get }
+    var cardPaymentValue: String { get }
+    var totalPayment: String { get }
     
+    func contactImage(completion: @escaping (_ image: UIImage?) -> Void)
 }
 
 protocol ReceiptsViewModelCoordinatorDelegate:class {

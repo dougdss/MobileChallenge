@@ -12,16 +12,18 @@ protocol PaymentViewModelType {
     
     var viewDelegate: PaymentViewModelViewDelegate? { get set }
     
-    func formatPaymentValue(textValue text: String)
+    var paymentDestinationUsername: String { get }
+    var paymentCardName: String { get }
     
+    func formatPaymentValue(textValue text: String)
     var paymentValue: NSNumber { get set }
-    var paymentFormatter: NumberFormatter { get }
-    var dateFormatter: DateFormatter { get }
     func pay(fromController controller: UIViewController)
+    func getUserImage(completion: @escaping (_ image: UIImage?) -> Void)
+    
 }
 
 protocol PaymentViewModelCoordinatorDelegate:class {
-    func didConfirm(transaction: ConfirmedTransaction, forContact contact: Contact, fromController controller: UIViewController)
+    func didConfirm(transaction: ConfirmedTransaction, forContact contact: Contact, withCard card: CreditCard, fromController controller: UIViewController)
 }
 
 protocol PaymentViewModelViewDelegate:class {

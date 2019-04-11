@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentViewController" customModule="Mobile_Challenge" customModuleProvider="target">
             <connections>
+                <outlet property="cardNumberLabel" destination="YMK-38-RlM" id="nfn-6w-kft"/>
                 <outlet property="contactImageView" destination="t33-iB-BVx" id="QBP-Uc-6cP"/>
+                <outlet property="contactUsernameLabel" destination="uXv-xa-Nqh" id="tvs-OB-qni"/>
                 <outlet property="indicator" destination="RFZ-iy-Fi8" id="UeW-pw-Zz5"/>
                 <outlet property="paymentButton" destination="EeN-v6-PDB" id="kIG-8j-7Nk"/>
                 <outlet property="paymentValueLabel" destination="UFy-bA-fxi" id="4Nq-3m-vnV"/>
@@ -59,6 +61,9 @@
                             <state key="normal" title="EDITAR">
                                 <color key="titleColor" red="0.35686274509999999" green="0.76470588240000004" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="editCardButtonTapped:" destination="-1" eventType="touchUpInside" id="7KW-sI-ogK"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

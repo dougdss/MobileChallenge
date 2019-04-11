@@ -12,7 +12,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReceiptsViewController" customModule="Mobile_Challenge" customModuleProvider="target">
             <connections>
+                <outlet property="cardNameLabel" destination="I89-NP-beq" id="JI7-d8-u3P"/>
+                <outlet property="cardPaymentValueLabel" destination="Dba-dJ-Sgf" id="3fR-3X-gqS"/>
+                <outlet property="contactImageView" destination="iuv-De-uaO" id="g2j-Yk-ilW"/>
+                <outlet property="contactUsernameLabel" destination="f7n-87-3IX" id="QeT-hA-Zpf"/>
+                <outlet property="receiptView" destination="5hd-mM-uqf" id="Oqa-Gd-IXf"/>
+                <outlet property="topIndicatorContainerView" destination="0rD-7u-HWj" id="Cjs-jt-9ol"/>
                 <outlet property="topIndicatorView" destination="fBB-dW-Zv4" id="D3e-xU-VqE"/>
+                <outlet property="totalPaymentLabel" destination="mZY-MP-CWF" id="X1e-hH-hqT"/>
+                <outlet property="transacationIdLabel" destination="BRJ-9k-va4" id="nyy-cC-zfY"/>
+                <outlet property="transactionDateLabel" destination="iOR-k3-1co" id="5Xw-zu-Hkg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,7 +31,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hd-mM-uqf">
-                    <rect key="frame" x="0.0" y="84" width="320" height="484"/>
+                    <rect key="frame" x="0.0" y="92" width="320" height="476"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rD-7u-HWj">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
@@ -42,7 +51,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.086274509803921567" alpha="1" colorSpace="deviceRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="MOA-gi-ciX"/>
                                 <constraint firstItem="uyK-tZ-w7M" firstAttribute="centerX" secondItem="0rD-7u-HWj" secondAttribute="centerX" id="TZ4-yo-P72"/>
@@ -77,45 +86,45 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCz-T6-7vv">
-                            <rect key="frame" x="20" y="278" width="280" height="2"/>
+                            <rect key="frame" x="20" y="278" width="280" height="1"/>
                             <color key="backgroundColor" red="0.23921568627450979" green="0.26666666666666666" blue="0.31764705882352939" alpha="1" colorSpace="deviceRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="2" id="NI4-Ih-xcV"/>
+                                <constraint firstAttribute="height" constant="1" id="NI4-Ih-xcV"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pG-na-JqW">
-                            <rect key="frame" x="20" y="320" width="280" height="2"/>
+                            <rect key="frame" x="20" y="319" width="280" height="1"/>
                             <color key="backgroundColor" red="0.23921568630000001" green="0.2666666667" blue="0.31764705879999999" alpha="1" colorSpace="deviceRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="2" id="GOW-lP-v7M"/>
+                                <constraint firstAttribute="height" constant="1" id="GOW-lP-v7M"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cartão master 1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I89-NP-beq">
-                            <rect key="frame" x="20" y="292" width="121" height="16"/>
+                            <rect key="frame" x="20" y="291" width="121" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 16,90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dba-dJ-Sgf">
-                            <rect key="frame" x="242" y="292" width="58" height="16"/>
+                            <rect key="frame" x="242" y="291" width="58" height="16"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Pago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePl-v9-ruI">
-                            <rect key="frame" x="20" y="334" width="86" height="21"/>
+                            <rect key="frame" x="20" y="332" width="86" height="21"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 16,90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZY-MP-CWF">
-                            <rect key="frame" x="227" y="334" width="73" height="21"/>
+                            <rect key="frame" x="227" y="332" width="73" height="21"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.11372549019607843" green="0.11764705882352941" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.11372549019607843" green="0.11764705882352941" blue="0.12549019607843137" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="0pG-na-JqW" secondAttribute="trailing" constant="20" id="29g-8Y-siA"/>
                         <constraint firstItem="0rD-7u-HWj" firstAttribute="top" secondItem="5hd-mM-uqf" secondAttribute="top" id="2Ht-Pc-jtE"/>
@@ -127,7 +136,6 @@
                         <constraint firstItem="f7n-87-3IX" firstAttribute="top" secondItem="iuv-De-uaO" secondAttribute="bottom" constant="12" id="OWs-Xq-jf2"/>
                         <constraint firstAttribute="trailing" secondItem="dCz-T6-7vv" secondAttribute="trailing" constant="20" id="Omf-FK-dRk"/>
                         <constraint firstItem="I89-NP-beq" firstAttribute="top" secondItem="dCz-T6-7vv" secondAttribute="bottom" constant="12" id="Twi-QS-ihP"/>
-                        <constraint firstAttribute="bottom" secondItem="uyK-tZ-w7M" secondAttribute="bottom" constant="442" id="UM7-O5-f0m"/>
                         <constraint firstItem="0pG-na-JqW" firstAttribute="top" secondItem="I89-NP-beq" secondAttribute="bottom" constant="12" id="Ubc-pd-HEv"/>
                         <constraint firstItem="ePl-v9-ruI" firstAttribute="top" secondItem="0pG-na-JqW" secondAttribute="bottom" constant="12" id="ZTi-M0-UtN"/>
                         <constraint firstItem="iOR-k3-1co" firstAttribute="top" secondItem="f7n-87-3IX" secondAttribute="bottom" constant="8" id="ZcG-Yu-HjN"/>
@@ -152,7 +160,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="5hd-mM-uqf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6Sc-qo-w1Z"/>
-                <constraint firstItem="5hd-mM-uqf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="Jc6-Pe-7cu"/>
+                <constraint firstItem="5hd-mM-uqf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="72" id="Jc6-Pe-7cu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5hd-mM-uqf" secondAttribute="bottom" id="PwO-ox-w7W"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5hd-mM-uqf" secondAttribute="trailing" id="h1B-6v-VNC"/>
             </constraints>

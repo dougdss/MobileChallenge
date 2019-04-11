@@ -17,6 +17,8 @@ class PaymentViewController: CustomNavBarViewController {
     }
 
     @IBOutlet weak var contactImageView: UIImageView!
+    @IBOutlet weak var contactUsernameLabel: UILabel!
+    @IBOutlet weak var cardNumberLabel: UILabel!
     @IBOutlet weak var paymentValueLabel: UILabel!
     @IBOutlet weak var paymentButton: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
@@ -42,6 +44,19 @@ class PaymentViewController: CustomNavBarViewController {
         hiddenTextField.becomeFirstResponder()
         hiddenTextField.addTarget(self, action: #selector(formatPaymentValue(_:)), for: .editingChanged)
         formatPaymentValue(hiddenTextField)
+        configViews()
+    }
+    
+    func configViews() {
+        contactImageView.layer.cornerRadius = contactImageView.frame.width / 2
+        contactImageView.layer.masksToBounds = true
+        contactUsernameLabel.text = viewModel.paymentDestinationUsername
+        cardNumberLabel.text = viewModel.paymentCardName
+        viewModel.getUserImage { [weak self] (image) in
+            DispatchQueue.main.async {
+                self?.contactImageView.image = image
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -69,6 +84,10 @@ class PaymentViewController: CustomNavBarViewController {
     
     @IBAction func didTapPay(_ sender: Any) {
         viewModel.pay(fromController: self)
+    }
+    
+    @IBAction func editCardButtonTapped(_ sender: Any) {
+        
     }
 }
 

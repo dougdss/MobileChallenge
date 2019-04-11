@@ -16,20 +16,25 @@ class ReceiptsCoordinator: Coordinator {
     
     var rootViewController: UIViewController
     weak var delegate: ReceiptsCoordinatorDelegate?
+    var paymentConfirmation: ConfirmedTransaction
+    var paymentCard: CreditCard
     
     var viewModel: ReceiptsViewModelType {
-        let vModel = ReceiptsViewModel()
+        let vModel = ReceiptsViewModel(paymentConfirmation: paymentConfirmation, card: paymentCard)
         vModel.coordinatorDelegate = self
         return vModel
     }
     
-    init(rootViewController: UIViewController) {
+    init(rootViewController: UIViewController, paymentConfirmation: ConfirmedTransaction, card: CreditCard) {
         self.rootViewController = rootViewController
+        self.paymentConfirmation = paymentConfirmation
+        self.paymentCard = card
     }
     
     override func start() {
         let receiptVC = ReceiptsViewController()
-        receiptVC.modalPresentationStyle = .overFullScreen
+        receiptVC.viewModel = viewModel
+        receiptVC.modalPresentationStyle = .overCurrentContext
         rootViewController.navigationController?.present(receiptVC, animated: true, completion: nil)
     }
     

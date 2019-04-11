@@ -10,7 +10,7 @@ import UIKit
 
 protocol PaymentCoordinatorDelegate:class {
     func didFinish(from: PaymentCoordinator)
-    func didConfirmPayment(forContact contact: Contact, paymentInfo payment: ConfirmedTransaction, fromController controller: UIViewController)
+    func didConfirmPayment(forContact contact: Contact, paymentInfo payment: ConfirmedTransaction, card: CreditCard, fromController controller: UIViewController)
 }
 
 class PaymentCoordinator: Coordinator {
@@ -51,12 +51,11 @@ class PaymentCoordinator: Coordinator {
 
 extension PaymentCoordinator: PaymentViewModelCoordinatorDelegate {
     
-    
-    func didConfirm(transaction: ConfirmedTransaction, forContact contact: Contact, fromController controller: UIViewController) {
+    func didConfirm(transaction: ConfirmedTransaction, forContact contact: Contact, withCard card: CreditCard, fromController controller: UIViewController) {
         // show receipt
         rootViewController.navigationController?.popViewController(animated: true)
         finish()
-        delegate?.didConfirmPayment(forContact: contact, paymentInfo: transaction, fromController: controller)
+        delegate?.didConfirmPayment(forContact: contact, paymentInfo: transaction, card: card, fromController: controller)
     }
     
 }

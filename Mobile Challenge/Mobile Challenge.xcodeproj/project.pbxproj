@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A51E78BC225EEDE10043718C /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E78BB225EEDE10043718C /* Formatters.swift */; };
 		A56CCF2522580E5500CCB98F /* ImageDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF2422580E5500CCB98F /* ImageDownloaderTests.swift */; };
 		A56CCF282258129700CCB98F /* ImageHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF272258129700CCB98F /* ImageHelpers.swift */; };
 		A56CCF2B22591A2500CCB98F /* TestDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56CCF2A22591A2500CCB98F /* TestDoubles.swift */; };
@@ -103,6 +104,7 @@
 		2C07031FAF2D7EDCE6ECF8AA /* Pods_Mobile_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C1E04200F300F39AEDB9D9 /* Pods_Mobile_ChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_ChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB1ABF0FE417C470CD3D3A7 /* Pods-Mobile Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mobile Challenge/Pods-Mobile Challenge.debug.xcconfig"; sourceTree = "<group>"; };
+		A51E78BB225EEDE10043718C /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		A56CCF2422580E5500CCB98F /* ImageDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderTests.swift; sourceTree = "<group>"; };
 		A56CCF272258129700CCB98F /* ImageHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelpers.swift; sourceTree = "<group>"; };
 		A56CCF2A22591A2500CCB98F /* TestDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDoubles.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				A5C069392255B6D000897A6A /* ViewState.swift */,
 				A56CCF54225A368A00CCB98F /* CustomNavBarViewController.swift */,
 				A599E79D225C596E004AA8A9 /* CreditCardFormatter.swift */,
+				A51E78BB225EEDE10043718C /* Formatters.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -954,6 +957,7 @@
 				A5C8D17F225DBB04005DB576 /* PaymentApiRequest.swift in Sources */,
 				A5FFCC832256E55900828338 /* ApiResponse.swift in Sources */,
 				A56CCF422259AEED00CCB98F /* RegisterCardViewModelType.swift in Sources */,
+				A51E78BC225EEDE10043718C /* Formatters.swift in Sources */,
 				A56CCF64225A464300CCB98F /* Cards.xcdatamodeld in Sources */,
 				A5C8D168225D69E5005DB576 /* TransactionInfo.swift in Sources */,
 				A5C0693F2255B73400897A6A /* ContactViewDataType.swift in Sources */,
