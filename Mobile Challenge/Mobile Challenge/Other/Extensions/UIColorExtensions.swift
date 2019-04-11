@@ -17,5 +17,6 @@ extension UIColor {
     
     static let picpayDefaultGreenActionColor = UIColor(red: 91/255, green: 195/255, blue: 120/255, alpha: 1)
     static let picpayTextFieldPlaceHolderColor = UIColor(red: 119/255, green: 120/255, blue: 121/255, alpha: 1)
+    static let picpayDisabledButtonColor = UIColor(red: 143/255, green: 146/255, blue: 157/255, alpha: 1)
 }
 

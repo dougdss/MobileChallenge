@@ -17,12 +17,19 @@ class RegisterCardViewController: CustomNavBarViewController {
         }
     }
     
+    @IBOutlet weak var registerButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func didTapRegister(_ sender: Any) {
         viewModel.didTouchRegisterCard(from: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerButton.layer.cornerRadius = registerButton.frame.height / 2
     }
     
     override func viewWillDisappear(_ animated: Bool) {

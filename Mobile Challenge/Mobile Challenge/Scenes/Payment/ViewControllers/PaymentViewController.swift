@@ -49,6 +49,7 @@ class PaymentViewController: CustomNavBarViewController {
     
     func configViews() {
         contactImageView.layer.cornerRadius = contactImageView.frame.width / 2
+        paymentButton.layer.cornerRadius = paymentButton.frame.height / 2
         contactImageView.layer.masksToBounds = true
         contactUsernameLabel.text = viewModel.paymentDestinationUsername
         cardNumberLabel.text = viewModel.paymentCardName
@@ -62,7 +63,6 @@ class PaymentViewController: CustomNavBarViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         hiddenTextField.removeTarget(self, action: #selector(formatPaymentValue(_:)), for: .editingChanged)
-        hiddenTextField.resignFirstResponder()
     }
     
     @objc func formatPaymentValue(_ sender: Any) {
@@ -79,7 +79,7 @@ class PaymentViewController: CustomNavBarViewController {
     
     func setIsValid(isValid: Bool) {
         paymentButton.isEnabled = isValid
-        paymentButton.alpha = isValid ? 1.0 : 0.5
+        paymentButton.backgroundColor = isValid ? .picpayDefaultGreenActionColor : UIColor.picpayDisabledButtonColor
         paymentValueLabel.textColor = isValid ? .picpayDefaultGreenActionColor : .picpayTextFieldPlaceHolderColor
     }
     
@@ -88,6 +88,7 @@ class PaymentViewController: CustomNavBarViewController {
     }
     
     @IBAction func editCardButtonTapped(_ sender: Any) {
+        hiddenTextField.resignFirstResponder()
         viewModel.editCard(fromController: self)
     }
 }

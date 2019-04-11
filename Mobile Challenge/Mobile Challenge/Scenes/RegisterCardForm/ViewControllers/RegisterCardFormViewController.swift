@@ -66,6 +66,7 @@ class RegisterCardFormViewController: CustomNavBarViewController {
     }
     
     private func configureTextFields() {
+        saveButton.layer.cornerRadius = saveButton.frame.height / 2
         cardNumberTextField.titleFormatter = { _ in return "Número do cartão" }
         cardHolderNameTextField.titleFormatter = { _ in return "Nome do titular" }
         cardDueDateTextField.titleFormatter = { _ in return "Vencimento" }
