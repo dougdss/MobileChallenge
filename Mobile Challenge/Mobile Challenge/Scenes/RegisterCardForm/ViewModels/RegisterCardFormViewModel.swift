@@ -54,6 +54,48 @@ class RegisterCardFormViewModel: RegisterCardFormViewModelType {
         }
     }
     
+    func formatCardNumber(cardNumber number: String) {
+        
+        let formattedText = CreditCardFormatter.formatCreditCard(withText: number)
+        
+        cardNumber = formattedText
+        viewDelegate?.updateCardNumber(cardNumber: formattedText)
+        validateForm()
+    }
+    
+    func formatCardExpiryDate(cardExpiryDate date: String) {
+        
+        let formattedText = CreditCardFormatter.formatCreditCardExpiryDate(withText: date)
+        dueDate = CardExpiryDateFormatter.formatter.date(from: formattedText) ?? Date()
+        viewDelegate?.updateCardExpiryDate(expiryDate: formattedText)
+        validateForm()
+        
+    }
+    
+    func formatCardCvv(cardCVV cvv: String) {
+        self.cvv = cvv
+        validateForm()
+        
+    }
+    
+    func formatCardHolderName(cardHolderName name: String) {
+        validateForm()
+        self.holderName = name
+    }
+    
+    func validateForm() {
+        var isValid = true
+        
+        
+        isValid = cardNumber.count == 19 &&
+            CardExpiryDateFormatter.formatter.string(from: dueDate).count == 5 &&
+            cvv.count == 3 &&
+            holderName.count >= 12
+        
+        viewDelegate?.isFormValid(valid: isValid)
+    }
+    
+    
     func didTouchBackButton() {
         coordinatorDelegate?.didPopFromNavigation()
     }
